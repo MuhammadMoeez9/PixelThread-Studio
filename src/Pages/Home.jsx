@@ -39,7 +39,7 @@ import R2LSKULLLOGO02 from "../assets/projects/R2LSKULLLOGO02.jpg";
 import MANLOGO2 from "../assets/projects/MANLOGO2.JPG";
 import LonghurstDetailslogo from "../assets/projects/LonghurstDetailslogo.png";
 import Santa from "../assets/projects/Santa.JPG";
-import LakeLogo from "../assets/projects/lakelogo.JPG";
+import LakeLogo from "/src/assets/projects/lakeLogo.JPG";
 import lakeLogo02222 from "../assets/projects/lakeLogo02222.JPG";
 import MonkeyJB from "../assets/projects/MonkeyJB.JPG";
 
