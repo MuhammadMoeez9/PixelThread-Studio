@@ -32,7 +32,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Upload" element={<UploadForm />} />
           <Route path="/Animation" element={<AboutAnimation />} />
-          <Route path="/HomeAnimation" element={<HomeAnimation />} />
+          <Route path="/" element={<HomeAnimation />} />
           <Route path="/user/:userId" element={<UserDetail />} />
         </Routes>
       </AuthProvider>

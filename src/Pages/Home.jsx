@@ -40,8 +40,8 @@ import MANLOGO2 from "../assets/projects/MANLOGO2.JPG";
 import LonghurstDetailslogo from "../assets/projects/LonghurstDetailslogo.png";
 import Santa from "../assets/projects/Santa.JPG";
 import LakeLogo from "/src/assets/projects/lakeLogo.JPG";
-import lakeLogo02222 from "../assets/projects/lakeLogo02222.JPG";
-import MonkeyJB from "../assets/projects/MonkeyJB.JPG";
+import LakeLogo02222 from "/src/assets/projects/LakeLogo02222.JPG";
+import MonkeyJB from "/src/assets/projects/MonkeyJB.JPG";
 
 const Home = () => {
   const [user, setUser] = useState(null);
@@ -427,7 +427,7 @@ const Home = () => {
                   <p>PixelThread Studio</p>
                   <h4>Embroidery Digitizing</h4>
                 </div>
-                <img src={lakeLogo02222} alt="" />
+                <img src={LakeLogo02222} alt="" />
               </div>
               <div className="col">
                 <div className="text">
