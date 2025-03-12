@@ -1,0 +1,64 @@
+/* Main container */
+.blur-text-container {
+  display: flex;
+  align-items: center; /* Centers vertically (Y-axis) */
+  justify-content: center; /* Centers horizontally (X-axis) */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Default text styling */
+.blur-text-container p {
+  font-size: 3vw;
+  font-weight: bold;
+  line-height: 1.2;
+  max-width: 90%;
+  white-space: nowrap; /* Prevent wrapping by default */
+  display: flex;
+  align-items: center; /* Ensures text inside is also centered */
+  justify-content: center;
+}
+
+/* Highlighted text */
+.highlight {
+  color: yellow;
+  font-weight: bold;
+}
+
+/* 🔹 Mobile Devices (up to 450px) */
+@media (max-width: 450px) {
+  .blur-text-container p {
+    font-size: 4vw;
+    white-space: normal; /* Allow wrapping */
+    display: flex;
+    flex-direction: column; /* Ensures text stacks properly */
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* 🔹 Tablets (451px - 768px) */
+@media (min-width: 451px) and (max-width: 768px) {
+  .blur-text-container p {
+    font-size: 5vw;
+    white-space: normal;
+  }
+}
+
+/* 🔹 Laptops (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .blur-text-container p {
+    font-size: 4vw;
+  }
+}
+
+/* 🔹 Desktops (Above 1024px) */
+@media (min-width: 1025px) {
+  .blur-text-container p {
+    font-size: 3vw;
+  }
+}
