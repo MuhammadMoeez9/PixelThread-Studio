@@ -237,67 +237,61 @@ const Home = () => {
             </p>
           </div>
           <div id="page-3-cards">
-            <a href="">
-              <div className="card">
-                <div className="card-top">
-                  <img src={elements01} alt="" />
-                </div>
-                <div className="card-btm">
-                  <h3>Vector Graphics</h3>
-                  <p>
-                    Having trouble with your logo file not being in the correct
-                    format? We offer vector art conversion service that will
-                    save you time and money both.
-                  </p>
-                  <img src={elements04} alt="" />
-                </div>
+            <div className="card">
+              <div className="card-top">
+                <img src={elements01} alt="" />
               </div>
-            </a>
-            <a href="">
-              <div className="card">
-                <div className="card-top">
-                  <img src={elements02} alt="" />
-                </div>
-                <div className="card-btm">
-                  <h3>Embroidery Digitizing</h3>
-                  <p>
-                    Pixel Thread Studio is of one of the prominent embroidery
-                    digitizing companies of America.
-                  </p>
-                  <img src={elements05} alt="" />
-                </div>
+              <div className="card-btm">
+                <h3>Vector Graphics</h3>
+                <p>
+                  Having trouble with your logo file not being in the correct
+                  format? We offer vector art conversion service that will save
+                  you time and money both.
+                </p>
+                <img src={elements04} alt="" />
               </div>
-            </a>
-            <a href="">
-              <div className="card">
-                <div className="card-top">
-                  <img src={elements03} alt="" />
-                </div>
-                <div className="card-btm">
-                  <h3>Screen Printing</h3>
-                  <p>
-                    We have the on-site capacity for larger runs on our
-                    automated presses or smaller runs on our manual presses.
-                  </p>
-                  <img src={elements06} alt="" />
-                </div>
+            </div>
+
+            <div className="card">
+              <div className="card-top">
+                <img src={elements02} alt="" />
               </div>
-            </a>
-            <a href="">
-              <div className="card">
-                <div className="card-top">
-                  <img src={elements07} alt="" />
-                </div>
-                <div className="card-btm">
-                  <h3>Custom Graphics</h3>
-                  <p>
-                    Custom graphics designed for your needs, with high-quality,
-                    scalable results.
-                  </p>
-                  <img src={elements08} alt="" />
-                </div>
+              <div className="card-btm">
+                <h3>Embroidery Digitizing</h3>
+                <p>
+                  Pixel Thread Studio is of one of the prominent embroidery
+                  digitizing companies of America.
+                </p>
+                <img src={elements05} alt="" />
               </div>
-            </a>
+            </div>
+            <div className="card">
+              <div className="card-top">
+                <img src={elements03} alt="" />
+              </div>
+              <div className="card-btm">
+                <h3>Screen Printing</h3>
+                <p>
+                  We have the on-site capacity for larger runs on our automated
+                  presses or smaller runs on our manual presses.
+                </p>
+                <img src={elements06} alt="" />
+              </div>
+            </div>
+
+            <div className="card">
+              <div className="card-top">
+                <img src={elements07} alt="" />
+              </div>
+              <div className="card-btm">
+                <h3>Custom Graphics</h3>
+                <p>
+                  Custom graphics designed for your needs, with high-quality,
+                  scalable results.
+                </p>
+                <img src={elements08} alt="" />
+              </div>
+            </div>
           </div>
         </div>
         <div id="page-4">
