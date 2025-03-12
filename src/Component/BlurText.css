@@ -29,7 +29,7 @@
   font-weight: bold;
 }
 
-/* 🔹 Mobile Devices (up to 450px) */
+/* 🔹 Mobile Devices (upto 450px) */
 @media (max-width: 450px) {
   .blur-text-container p {
     font-size: 4vw;
