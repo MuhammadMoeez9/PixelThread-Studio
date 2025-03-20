@@ -9,7 +9,7 @@ export default defineConfig({
     },
   },
   plugins: [react()],
-  assetsInclude: ["**/*.JPG", "**/*.MP4"],  // ✅ Add MP4 support
+  assetsInclude: ["**/*.JPG", "**/*.MP4", "**/*.jpeg"],   // ✅ Add MP4 support
   base: "/",
   build: {
     outDir: "dist",
