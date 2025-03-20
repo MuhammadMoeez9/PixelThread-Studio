@@ -43,7 +43,7 @@ import LakeLogo from "/src/assets/projects/lakeLogo.JPG";
 import LakeLogo02222 from "/src/assets/projects/LakeLogo02222.JPG";
 import MonkeyJB from "/src/assets/projects/MonkeyJB.JPG";
 import BrotherStellaireembroiderymachineThumbnail from "../assets/BrotherStellaireembroiderymachineThumbnail.png";
-import BrotherStellaireembroiderymachineVideo from "../assets/BrotherStellaireembroiderymachine.mp4";
+import video from "../assets/BrotherStellaireembroiderymachine.MP4";
 import Icons01 from "../assets/icons-01.png";
 import Icons02 from "../assets/icons-02.png";
 import Icons03 from "../assets/icons-03.png";
@@ -612,12 +612,7 @@ const Home = () => {
             onMouseLeave={() => videoRef.current.pause()}
           >
             <img src={BrotherStellaireembroiderymachineThumbnail} alt="" />
-            <video
-              ref={videoRef}
-              src={BrotherStellaireembroiderymachineVideo}
-              muted
-              loop
-            />
+            <video ref={videoRef} src={video} muted loop />
           </div>
         </div>
       </div>
