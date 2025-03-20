@@ -3,7 +3,7 @@ import { db } from "../Component/Firebase"; // Ensure Firebase is configured
 import { collection, getDocs } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"; // Import signOut method
 import { Link, useNavigate } from "react-router-dom"; // Import navigation
-import Loader from "../Component/Loader"; // Import Loader component
+// import Loader from "../Component/Loader"; 
 import "./ProjectPage.css";
 
 const ProjectsPage = () => {

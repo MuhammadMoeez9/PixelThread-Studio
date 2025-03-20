@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"; // Firebase Auth
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../Component/Firebase"; // Ensure correct import paths
@@ -42,19 +42,34 @@ import Santa from "../assets/projects/Santa.JPG";
 import LakeLogo from "/src/assets/projects/lakeLogo.JPG";
 import LakeLogo02222 from "/src/assets/projects/LakeLogo02222.JPG";
 import MonkeyJB from "/src/assets/projects/MonkeyJB.JPG";
+import BrotherStellaireembroiderymachineThumbnail from "../assets/BrotherStellaireembroiderymachineThumbnail.png";
+import BrotherStellaireembroiderymachineVideo from "../assets/BrotherStellaireembroiderymachine.mp4";
+import Icons01 from "../assets/icons-01.png";
+import Icons02 from "../assets/icons-02.png";
+import Icons03 from "../assets/icons-03.png";
+import Icons04 from "../assets/icons-04.png";
+import Icons05 from "../assets/icons-05.png";
+import FaceOneGirl from "/src/assets/Clients/FaceOneGirl.jpeg";
+import FaceTwoGirl from "/src/assets/Clients/FaceOneGirl.jpeg";
+import FaceThreeGirl from "/src/assets/Clients/FaceOneGirl.jpeg";
+import FaceOneBoy from "/src/assets/Clients/FaceOneBoy.jpeg";
+import FaceTwoBoy from "/src/assets/Clients/FaceOneBoy.jpeg";
+import FaceThreeBoy from "/src/assets/Clients/FaceOneBoy.jpeg";
 
 const Home = () => {
   const [user, setUser] = useState(null);
   const [role, setRole] = useState("");
-  const [loading, setLoading] = useState(true); // Added loading state
+  const [loading, setLoading] = useState(true);
   const auth = getAuth();
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const videoRef = useRef(null);
 
-  // Check if user is logged in
+  // ✅ Firebase Authentication Check
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
-      setLoading(false); // Set loading false once Firebase auth check is complete
+      setLoading(false); // Ensure loading stops
 
       if (currentUser) {
         try {
@@ -71,16 +86,17 @@ const Home = () => {
     return () => unsubscribe();
   }, [auth]);
 
-  // Logout function
+  // ✅ Logout function
   const handleLogout = async () => {
     try {
       await signOut(auth);
       setUser(null);
-      navigate("/Home"); // Redirect to Home after logout
+      navigate("/"); // ❌ This is forcing navigation, remove it!
     } catch (error) {
       console.error("Logout Error:", error);
     }
   };
+
   return (
     <>
       <div id="main">
@@ -97,16 +113,44 @@ const Home = () => {
             <a href="./contact-page/index.html">Contact</a>
           </div>
           <div id="menu">
-            {user ? (
+            {loading ? (
+              <p>Loading...</p>
+            ) : user ? (
               <button onClick={handleLogout}>Logout</button>
             ) : (
-              <button>Login</button>
+              <Link to="/login">
+                <button>Login</button>
+              </Link>
             )}
 
-            <img src={reviewscardelem03} alt="" />
-            <i className="ri-menu-fill" />
+            <img src={reviewscardelem03} alt="User Icon" />
+
+            <button className="btn mobile-nav-btn">
+              <i className="ri-menu-fill"></i>
+            </button>
           </div>
         </nav>
+
+        {/* Mobile Navigation */}
+        <div className={`mobile-nav ${isOpen ? "active" : ""}`}>
+          <ul>
+            <li>
+              <a href="./Portfolio-page/index.html">Portfolio</a>
+            </li>
+            <li>
+              <a href="#">Pricing</a>
+            </li>
+            <li>
+              <a href="./Service-page/index.html">Services</a>
+            </li>
+            <li>
+              <Link to="/About">About</Link> {/* ✅ Updated navigation */}
+            </li>
+            <li>
+              <a href="./contact-page/index.html">Contact</a>
+            </li>
+          </ul>
+        </div>
         <div id="page-1-hero-section">
           <div id="hero-sec-1">
             <div id="hero-left">
@@ -435,7 +479,7 @@ const Home = () => {
           <div id="project-counter">
             <div id="container">
               <div className="count-container">
-                <img src="./Assets/icons-01.png" alt="" />
+                <img src={Icons01} alt="" />
                 <h3>
                   <span>
                     <CountUp
@@ -452,7 +496,7 @@ const Home = () => {
                 <h4>Project Completed</h4>
               </div>
               <div className="count-container">
-                <img src="./Assets/icons-02.png" alt="" />
+                <img src={Icons02} alt="" />
                 <h3>
                   <span>
                     <CountUp
@@ -469,7 +513,7 @@ const Home = () => {
                 <h4>Happy Clients</h4>
               </div>
               <div className="count-container">
-                <img src="./Assets/icons-03.png" alt="" />
+                <img src={Icons03} alt="" />
                 <h3>
                   <span>
                     <CountUp
@@ -486,7 +530,7 @@ const Home = () => {
                 <h4>Vector Designs</h4>
               </div>
               <div className="count-container">
-                <img src="./Assets/icons-04.png" alt="" />
+                <img src={Icons04} alt="" />
                 <h3>
                   <span>
                     <CountUp
@@ -503,7 +547,7 @@ const Home = () => {
                 <h4>Embroidery Digitizing</h4>
               </div>
               <div className="count-container">
-                <img src="./Assets/icons-05.png" alt="" />
+                <img src={Icons05} alt="" />
                 <h3>
                   <span>
                     <CountUp
@@ -538,7 +582,9 @@ const Home = () => {
         <div id="page-5-btm">
           <div id="about-btm">
             <div id="offer">
-              <h4>Our Story</h4>
+              <h4>
+                <q>Our Story</q>
+              </h4>
               <div id="offers">
                 <p>
                   PixelThread Studio is a professional embroidery digitizing and
@@ -560,16 +606,17 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div id="btm-right">
-            <img
-              src="./Assets/Video/Brother Stellaire embroidery machine Thumbnail.png"
-              alt=""
-            />
+          <div
+            id="btm-right"
+            onMouseEnter={() => videoRef.current.play()}
+            onMouseLeave={() => videoRef.current.pause()}
+          >
+            <img src={BrotherStellaireembroiderymachineThumbnail} alt="" />
             <video
-              src="./Assets/Video/Brother Stellaire embroidery machine.mp4"
-              autoPlay=""
-              muted=""
-              loop=""
+              ref={videoRef}
+              src={BrotherStellaireembroiderymachineVideo}
+              muted
+              loop
             />
           </div>
         </div>
@@ -715,10 +762,10 @@ const Home = () => {
               <p>
                 The quality exceeded my expectations, and the customer support
                 was top-notch. Highly recommend to anyone looking for the best
-                in the market!" Reviewer
+                in the market!"
               </p>
               <div className="client-profile">
-                <img src={reviewscardelem03} alt="" />
+                <img src={FaceOneGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily R.</h5>
                   <p> Fantastic Service!</p>
@@ -735,7 +782,7 @@ const Home = () => {
                 delivered on time and just as promised. Couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src={reviewscardelem03} alt="" />
+                <img src={FaceOneBoy} alt="" />
                 <div className="client-info">
                   <h5> Noah W.</h5>
                   <p> Outstanding Quality!</p>
@@ -752,7 +799,7 @@ const Home = () => {
                 everything on time. I am beyond satisfied with my experience!
               </p>
               <div className="client-profile">
-                <img src={reviewscardelem03} alt="" />
+                <img src={FaceTwoBoy} alt="" />
                 <div className="client-info">
                   <h5>James T.</h5>
                   <p>Highly Recommend!</p>
@@ -770,7 +817,7 @@ const Home = () => {
                 helpful. I highly recommend it to anyone!
               </p>
               <div className="client-profile">
-                <img src={reviewscardelem03} alt="" />
+                <img src={FaceTwoGirl} alt="" />
                 <div className="client-info">
                   <h5>Sarah L.</h5>
                   <p>Outstanding Quality!</p>
@@ -787,7 +834,7 @@ const Home = () => {
                 expectations. The attention to detail was incredible!
               </p>
               <div className="client-profile">
-                <img src={reviewscardelem03} alt="" />
+                <img src={FaceThreeGirl} alt="" />
                 <div className="client-info">
                   <h5>Ava C.</h5>
                   <p>Worth Every Penny!</p>
@@ -804,7 +851,7 @@ const Home = () => {
                 top-tier, and I will definitely be using this again!
               </p>
               <div className="client-profile">
-                <img src={reviewscardelem03} alt="" />
+                <img src={FaceThreeBoy} alt="" />
                 <div className="client-info">
                   <h5>Michael B.</h5>
                   <p>Best Decision Ever!</p>
@@ -813,9 +860,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Everything was perfect! Great communication, fast delivery, and
                 amazing quality. I couldn't be happier!
@@ -830,9 +877,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 This service exceeded all my expectations! The quality, speed,
                 and customer support were top-notch. I will definitely be coming
@@ -850,13 +897,13 @@ const Home = () => {
           <div id="row-1">
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 The quality exceeded my expectations, and the customer support
                 was top-notch. Highly recommend to anyone looking for the best
-                in the market!" Reviewer
+                in the market!"
               </p>
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
@@ -868,9 +915,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Excellent service and very professional! Everything was
                 delivered on time and just as promised. Couldn't be happier!
@@ -878,16 +925,16 @@ const Home = () => {
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
                 <div className="client-info">
-                  <h5> Noah W.</h5>
+                  <h5> Noah T.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Fantastic service! The team was very professional and delivered
                 everything on time. I am beyond satisfied with my experience!
@@ -902,9 +949,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I had an amazing experience with this product/service. The
                 quality was exceptional, and the customer support was super
@@ -920,9 +967,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I wasn't sure at first, but this service completely exceeded my
                 expectations. The attention to detail was incredible!
@@ -937,9 +984,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I love how smooth and easy the whole process was. The quality is
                 top-tier, and I will definitely be using this again!
@@ -954,9 +1001,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Everything was perfect! Great communication, fast delivery, and
                 amazing quality. I couldn't be happier!
@@ -971,9 +1018,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 This service exceeded all my expectations! The quality, speed,
                 and customer support were top-notch. I will definitely be coming
@@ -991,13 +1038,13 @@ const Home = () => {
           <div id="row-1">
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 The quality exceeded my expectations, and the customer support
                 was top-notch. Highly recommend to anyone looking for the best
-                in the market!" Reviewer
+                in the market!"
               </p>
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
@@ -1009,9 +1056,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Excellent service and very professional! Everything was
                 delivered on time and just as promised. Couldn't be happier!
@@ -1019,16 +1066,16 @@ const Home = () => {
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
                 <div className="client-info">
-                  <h5> Noah W.</h5>
+                  <h5> Noah S.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Fantastic service! The team was very professional and delivered
                 everything on time. I am beyond satisfied with my experience!
@@ -1043,9 +1090,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I had an amazing experience with this product/service. The
                 quality was exceptional, and the customer support was super
@@ -1061,9 +1108,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I wasn't sure at first, but this service completely exceeded my
                 expectations. The attention to detail was incredible!
@@ -1078,9 +1125,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I love how smooth and easy the whole process was. The quality is
                 top-tier, and I will definitely be using this again!
@@ -1095,9 +1142,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Everything was perfect! Great communication, fast delivery, and
                 amazing quality. I couldn't be happier!
@@ -1112,9 +1159,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 This service exceeded all my expectations! The quality, speed,
                 and customer support were top-notch. I will definitely be coming
@@ -1132,13 +1179,13 @@ const Home = () => {
           <div id="row-1">
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 The quality exceeded my expectations, and the customer support
                 was top-notch. Highly recommend to anyone looking for the best
-                in the market!" Reviewer
+                in the market!"
               </p>
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
@@ -1150,9 +1197,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Excellent service and very professional! Everything was
                 delivered on time and just as promised. Couldn't be happier!
@@ -1160,16 +1207,16 @@ const Home = () => {
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
                 <div className="client-info">
-                  <h5> Noah W.</h5>
+                  <h5> Noah A.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Fantastic service! The team was very professional and delivered
                 everything on time. I am beyond satisfied with my experience!
@@ -1184,9 +1231,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I had an amazing experience with this product/service. The
                 quality was exceptional, and the customer support was super
@@ -1202,9 +1249,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I wasn't sure at first, but this service completely exceeded my
                 expectations. The attention to detail was incredible!
@@ -1219,9 +1266,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I love how smooth and easy the whole process was. The quality is
                 top-tier, and I will definitely be using this again!
@@ -1236,9 +1283,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Everything was perfect! Great communication, fast delivery, and
                 amazing quality. I couldn't be happier!
@@ -1253,9 +1300,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 This service exceeded all my expectations! The quality, speed,
                 and customer support were top-notch. I will definitely be coming
@@ -1275,13 +1322,13 @@ const Home = () => {
           <div id="row-2">
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 The quality exceeded my expectations, and the customer support
                 was top-notch. Highly recommend to anyone looking for the best
-                in the market!" Reviewer
+                in the market!"
               </p>
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
@@ -1293,9 +1340,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Excellent service and very professional! Everything was
                 delivered on time and just as promised. Couldn't be happier!
@@ -1303,16 +1350,16 @@ const Home = () => {
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
                 <div className="client-info">
-                  <h5> Noah W.</h5>
+                  <h5> Noah J.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Fantastic service! The team was very professional and delivered
                 everything on time. I am beyond satisfied with my experience!
@@ -1327,9 +1374,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I had an amazing experience with this product/service. The
                 quality was exceptional, and the customer support was super
@@ -1345,9 +1392,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I wasn't sure at first, but this service completely exceeded my
                 expectations. The attention to detail was incredible!
@@ -1362,9 +1409,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I love how smooth and easy the whole process was. The quality is
                 top-tier, and I will definitely be using this again!
@@ -1379,9 +1426,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Everything was perfect! Great communication, fast delivery, and
                 amazing quality. I couldn't be happier!
@@ -1396,9 +1443,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 This service exceeded all my expectations! The quality, speed,
                 and customer support were top-notch. I will definitely be coming
@@ -1416,13 +1463,13 @@ const Home = () => {
           <div id="row-2">
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 The quality exceeded my expectations, and the customer support
                 was top-notch. Highly recommend to anyone looking for the best
-                in the market!" Reviewer
+                in the market!"
               </p>
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
@@ -1434,9 +1481,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Excellent service and very professional! Everything was
                 delivered on time and just as promised. Couldn't be happier!
@@ -1444,16 +1491,16 @@ const Home = () => {
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
                 <div className="client-info">
-                  <h5> Noah W.</h5>
+                  <h5> Noah K.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Fantastic service! The team was very professional and delivered
                 everything on time. I am beyond satisfied with my experience!
@@ -1468,9 +1515,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I had an amazing experience with this product/service. The
                 quality was exceptional, and the customer support was super
@@ -1486,9 +1533,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I wasn't sure at first, but this service completely exceeded my
                 expectations. The attention to detail was incredible!
@@ -1503,9 +1550,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I love how smooth and easy the whole process was. The quality is
                 top-tier, and I will definitely be using this again!
@@ -1520,9 +1567,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Everything was perfect! Great communication, fast delivery, and
                 amazing quality. I couldn't be happier!
@@ -1537,9 +1584,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 This service exceeded all my expectations! The quality, speed,
                 and customer support were top-notch. I will definitely be coming
@@ -1557,13 +1604,13 @@ const Home = () => {
           <div id="row-2">
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 The quality exceeded my expectations, and the customer support
                 was top-notch. Highly recommend to anyone looking for the best
-                in the market!" Reviewer
+                in the market!"
               </p>
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
@@ -1575,9 +1622,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Excellent service and very professional! Everything was
                 delivered on time and just as promised. Couldn't be happier!
@@ -1585,16 +1632,16 @@ const Home = () => {
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
                 <div className="client-info">
-                  <h5> Noah W.</h5>
+                  <h5> Noah M.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Fantastic service! The team was very professional and delivered
                 everything on time. I am beyond satisfied with my experience!
@@ -1609,9 +1656,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I had an amazing experience with this product/service. The
                 quality was exceptional, and the customer support was super
@@ -1627,9 +1674,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I wasn't sure at first, but this service completely exceeded my
                 expectations. The attention to detail was incredible!
@@ -1644,9 +1691,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I love how smooth and easy the whole process was. The quality is
                 top-tier, and I will definitely be using this again!
@@ -1661,9 +1708,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Everything was perfect! Great communication, fast delivery, and
                 amazing quality. I couldn't be happier!
@@ -1678,9 +1725,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 This service exceeded all my expectations! The quality, speed,
                 and customer support were top-notch. I will definitely be coming
@@ -1698,13 +1745,13 @@ const Home = () => {
           <div id="row-2">
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 The quality exceeded my expectations, and the customer support
                 was top-notch. Highly recommend to anyone looking for the best
-                in the market!" Reviewer
+                in the market!"
               </p>
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
@@ -1716,9 +1763,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Excellent service and very professional! Everything was
                 delivered on time and just as promised. Couldn't be happier!
@@ -1726,16 +1773,16 @@ const Home = () => {
               <div className="client-profile">
                 <img src="./Assets/reviews card elem-03.png" alt="" />
                 <div className="client-info">
-                  <h5> Noah W.</h5>
+                  <h5> Noah J.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Fantastic service! The team was very professional and delivered
                 everything on time. I am beyond satisfied with my experience!
@@ -1750,9 +1797,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I had an amazing experience with this product/service. The
                 quality was exceptional, and the customer support was super
@@ -1768,9 +1815,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I wasn't sure at first, but this service completely exceeded my
                 expectations. The attention to detail was incredible!
@@ -1785,9 +1832,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 I love how smooth and easy the whole process was. The quality is
                 top-tier, and I will definitely be using this again!
@@ -1802,9 +1849,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 Everything was perfect! Great communication, fast delivery, and
                 amazing quality. I couldn't be happier!
@@ -1819,9 +1866,9 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src="./Assets/reviews card elem-01.png" alt="" />
+                <img src={reviewscardelem01} alt="" />
               </div>
-              <img src="./Assets/reviews card elem-02.png" alt="" />
+              <img src={reviewscardelem02} alt="" />
               <p>
                 This service exceeded all my expectations! The quality, speed,
                 and customer support were top-notch. I will definitely be coming
@@ -1916,13 +1963,28 @@ const Home = () => {
         </div>
         <div id="footer-right">
           <div className="contact-container">
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email Address" />
-            <input
-              className="message-box"
-              placeholder="Write something here..."
-            />
-            <button className="send-btn">Send Email</button>
+            <form className="contact-container">
+              <input
+                type="text"
+                name="user_name"
+                placeholder="Your Name"
+                required
+              />
+              <input
+                type="email"
+                name="user_email"
+                placeholder="Your Email Address"
+                required
+              />
+              <input
+                className="message-box"
+                placeholder="Your Message..."
+                required
+              />
+              <button type="submit" className="send-btn">
+                Send Email
+              </button>
+            </form>
           </div>
         </div>
       </div>

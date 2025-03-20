@@ -1,7 +1,12 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 // import "./App.css";
-import { AuthProvider } from "./Context/AuthContext";
+import { AuthProvider, useAuth } from "./Context/AuthContext";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Admin from "./Pages/Admin";
@@ -15,16 +20,34 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import AboutAnimation from "./Pages/AboutAnimation";
 import HomeAnimation from "./Pages/HomeAnimation";
+// import Loader from "./Component/Loader"
+
+const RedirectIfAuthenticated = ({ children }) => {
+  const { user } = useAuth();
+  return user ? <Navigate to="/" replace /> : children;
+};
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Router>
       <AuthProvider>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route
+            path="/login"
+            element={
+              <RedirectIfAuthenticated>
+                <Login />
+              </RedirectIfAuthenticated>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RedirectIfAuthenticated>
+                <Register />
+              </RedirectIfAuthenticated>
+            }
+          />
           <Route path="/Service" element={<ProjectsPage />} />
           <Route path="/project/:id" element={<ProjectDetailPage />} />
           <Route path="/admin" element={<Admin />} />

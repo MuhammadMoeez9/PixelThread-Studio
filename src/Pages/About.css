@@ -5,6 +5,20 @@
   user-select: none;
 }
 
+html.has-scroll-smooth {
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+html.has-scroll-dragging {
+  overflow: hidden;
+}
+
+[data-scroll-container] {
+  will-change: transform;
+  min-height: 100vh; /* Ensure full height */
+}
+
 html {
   font-size: 16px; /* Setting base font size */
 }

@@ -47,6 +47,61 @@ nav {
   border-bottom: 1px solid rgb(179, 179, 179);
 }
 
+/* New Navbar */
+
+/* Hide the mobile nav by default */
+.mobile-nav {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  /* background: white; */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Show mobile nav when active */
+.mobile-nav.active {
+  display: block;
+}
+
+/* Style for the navigation list */
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav ul li {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.mobile-nav ul li a {
+  text-decoration: none;
+  /* color: #333; */
+  font-size: 18px;
+}
+
+.mobile-nav ul li:hover {
+  background: #f0f0f0;
+}
+
+/* Closing */
+
+/* text new */
+#links {
+  position: relative;
+  z-index: 10;
+}
+
+nav img {
+  z-index: 5;
+}
+
+/* Closing */
 nav img {
   width: 120px;
   max-width: 150px; /* Restricting max width of logo */

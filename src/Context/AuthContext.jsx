@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { auth, db } from "../Component/Firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
@@ -12,7 +11,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); // Initialize useNavigate
 
   // Fetch user data from Firestore
   const fetchUserData = async (uid) => {
@@ -36,7 +34,6 @@ export const AuthProvider = ({ children }) => {
         fetchUserData(currentUser.uid);
       } else {
         setUserData(null);
-        navigate("/login"); // Redirect to login if no user
       }
       setLoading(false);
     });
@@ -51,7 +48,5 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Custom hook for using auth context
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+// ✅ Ensure the hook is exported properly
+export const useAuth = () => useContext(AuthContext);

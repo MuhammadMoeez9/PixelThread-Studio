@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../Component/Firebase";
 import { doc, getDoc } from "firebase/firestore";
-import Loader from "../Component/Loader"; // Import Loader component
+// import Loader from "../Component/Loader"; 
 
 const ProjectDetailPage = () => {
   const { id } = useParams();

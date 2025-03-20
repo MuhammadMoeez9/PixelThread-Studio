@@ -17,10 +17,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-  useEffect(() => {
-    document.title = "Login";
-  }, []);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -42,7 +38,7 @@ const Login = () => {
       });
 
       setTimeout(() => {
-        navigate("/home");
+        navigate("/");
       }, 3000);
     } catch (error) {
       setMessage("Invalid email or password.");
