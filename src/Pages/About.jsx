@@ -8,7 +8,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../Component/Firebase"; // Adjust this import path to your Firebase config
 import logo from "../assets/300x100-01.png";
 import BrotherStellaireembroiderymachineThumbnail from "../assets/BrotherStellaireembroiderymachineThumbnail.png";
-import video from "../assets/BrotherStellaireembroiderymachine.MP4";
+import BrotherStellaireembroiderymachineVideo from "../assets/BrotherStellaireembroiderymachine.mp4";
 import FadeInSection from "../Component/FadeInSection";
 
 const About = () => {
@@ -18,7 +18,7 @@ const About = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const videoRef = useRef(null);
-
+  const [loading, setLoading] = useState(true); // ✅ Define setLoading
   // ✅ Toggle Mobile Menu
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -215,7 +215,13 @@ const About = () => {
                 onMouseLeave={() => videoRef.current.pause()}
               >
                 <img src={BrotherStellaireembroiderymachineThumbnail} alt="" />
-                <video ref={videoRef} src={video} muted loop />
+                <video ref={videoRef} muted loop playsInline controls>
+                  <source
+                    src={BrotherStellaireembroiderymachineVideo}
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
