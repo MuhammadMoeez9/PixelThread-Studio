@@ -8,7 +8,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../Component/Firebase"; // Adjust this import path to your Firebase config
 import logo from "../assets/300x100-01.png";
 import BrotherStellaireembroiderymachineThumbnail from "../assets/BrotherStellaireembroiderymachineThumbnail.png";
-// import BrotherStellaireembroiderymachineVideo from "../assets/BrotherStellaireembroiderymachine.MP4";
+import video from "../assets/BrotherStellaireembroiderymachine.MP4";
 import FadeInSection from "../Component/FadeInSection";
 
 const About = () => {
@@ -18,7 +18,6 @@ const About = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const videoRef = useRef(null);
-  const videoUrl = "../public/BrotherStellaireembroiderymachine.MP4";
 
   // ✅ Toggle Mobile Menu
   const toggleMenu = () => {
@@ -47,6 +46,7 @@ const About = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
 
       if (currentUser) {
         try {
@@ -215,7 +215,7 @@ const About = () => {
                 onMouseLeave={() => videoRef.current.pause()}
               >
                 <img src={BrotherStellaireembroiderymachineThumbnail} alt="" />
-                <video ref={videoRef} src={videoUrl} muted loop />
+                <video ref={videoRef} src={video} muted loop />
               </div>
             </div>
           </div>
