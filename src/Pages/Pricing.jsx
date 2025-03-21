@@ -223,7 +223,7 @@ const Pricing = () => {
                 CONTACT NOW FOR SERVICES <br /> AND EXCLUSIVE OFFERS!
               </h4>
               <div id="l-top-img">
-                <img src="./Assets/footer image-01.png" alt="" />
+                <img src={footerimage01} alt="" />
                 <p>2000+ satisfied customers </p>
               </div>
             </div>

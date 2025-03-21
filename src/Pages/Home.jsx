@@ -52,11 +52,14 @@ import Icons03 from "../assets/icons-03.png";
 import Icons04 from "../assets/icons-04.png";
 import Icons05 from "../assets/icons-05.png";
 import FaceOneGirl from "/src/assets/Clients/FaceOneGirl.jpeg";
-import FaceTwoGirl from "/src/assets/Clients/FaceOneGirl.jpeg";
-import FaceThreeGirl from "/src/assets/Clients/FaceOneGirl.jpeg";
+import FaceTwoGirl from "/src/assets/Clients/FaceTwoGirl.jpeg";
+import FaceThreeGirl from "/src/assets/Clients/FaceThreeGirl.jpeg";
+import FaceFourGirl from "/src/assets/Clients/FaceFourGirl.jpeg";
+import FaceFiveGirl from "/src/assets/Clients/FaceFiveGirl.jpeg";
 import FaceOneBoy from "/src/assets/Clients/FaceOneBoy.jpeg";
-import FaceTwoBoy from "/src/assets/Clients/FaceOneBoy.jpeg";
-import FaceThreeBoy from "/src/assets/Clients/FaceOneBoy.jpeg";
+import FaceTwoBoy from "/src/assets/Clients/FaceTwoBoy.jpeg";
+import FaceThreeBoy from "/src/assets/Clients/FaceThreeBoy.jpeg";
+import FaceFourBoy from "/src/assets/Clients/FaceFourBoy.jpeg";
 import footerimage01 from "../assets/footerimage01.png";
 
 const Home = () => {
@@ -779,7 +782,7 @@ const Home = () => {
                 in the market!"
               </p>
               <div className="client-profile">
-                <img src={FaceOneGirl} alt="" />
+                <img src={FaceTwoGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily R.</h5>
                   <p> Fantastic Service!</p>
@@ -831,7 +834,7 @@ const Home = () => {
                 helpful. I highly recommend it to anyone!
               </p>
               <div className="client-profile">
-                <img src={FaceTwoGirl} alt="" />
+                <img src={FaceFiveGirl} alt="" />
                 <div className="client-info">
                   <h5>Sarah L.</h5>
                   <p>Outstanding Quality!</p>
@@ -882,7 +885,7 @@ const Home = () => {
                 amazing quality. I couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceThreeGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily S.</h5>
                   <p>Excellent Service!</p>
@@ -920,7 +923,7 @@ const Home = () => {
                 in the market!"
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily R.</h5>
                   <p> Fantastic Service!</p>
@@ -937,9 +940,9 @@ const Home = () => {
                 delivered on time and just as promised. Couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourBoy} alt="" />
                 <div className="client-info">
-                  <h5> Noah T.</h5>
+                  <h5> Adam R.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
@@ -972,7 +975,7 @@ const Home = () => {
                 helpful. I highly recommend it to anyone!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFiveGirl} alt="" />
                 <div className="client-info">
                   <h5>Sarah L.</h5>
                   <p>Outstanding Quality!</p>
@@ -1023,7 +1026,7 @@ const Home = () => {
                 amazing quality. I couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceOneGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily S.</h5>
                   <p>Excellent Service!</p>
@@ -1041,7 +1044,7 @@ const Home = () => {
                 back!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Daniel R.</h5>
                   <p> Absolutely Amazing!</p>
@@ -1061,7 +1064,7 @@ const Home = () => {
                 in the market!"
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily R.</h5>
                   <p> Fantastic Service!</p>
@@ -1078,9 +1081,9 @@ const Home = () => {
                 delivered on time and just as promised. Couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourBoy} alt="" />
                 <div className="client-info">
-                  <h5> Noah S.</h5>
+                  <h5> Adam R.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
@@ -1113,7 +1116,7 @@ const Home = () => {
                 helpful. I highly recommend it to anyone!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFiveGirl} alt="" />
                 <div className="client-info">
                   <h5>Sarah L.</h5>
                   <p>Outstanding Quality!</p>
@@ -1164,7 +1167,7 @@ const Home = () => {
                 amazing quality. I couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceOneGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily S.</h5>
                   <p>Excellent Service!</p>
@@ -1182,7 +1185,7 @@ const Home = () => {
                 back!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Daniel R.</h5>
                   <p> Absolutely Amazing!</p>
@@ -1202,7 +1205,7 @@ const Home = () => {
                 in the market!"
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily R.</h5>
                   <p> Fantastic Service!</p>
@@ -1219,9 +1222,9 @@ const Home = () => {
                 delivered on time and just as promised. Couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourBoy} alt="" />
                 <div className="client-info">
-                  <h5> Noah A.</h5>
+                  <h5> Adam R.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
@@ -1254,7 +1257,7 @@ const Home = () => {
                 helpful. I highly recommend it to anyone!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFiveGirl} alt="" />
                 <div className="client-info">
                   <h5>Sarah L.</h5>
                   <p>Outstanding Quality!</p>
@@ -1305,7 +1308,7 @@ const Home = () => {
                 amazing quality. I couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceOneGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily S.</h5>
                   <p>Excellent Service!</p>
@@ -1323,7 +1326,7 @@ const Home = () => {
                 back!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Daniel R.</h5>
                   <p> Absolutely Amazing!</p>
@@ -1345,7 +1348,7 @@ const Home = () => {
                 in the market!"
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily R.</h5>
                   <p> Fantastic Service!</p>
@@ -1362,9 +1365,9 @@ const Home = () => {
                 delivered on time and just as promised. Couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourBoy} alt="" />
                 <div className="client-info">
-                  <h5> Noah J.</h5>
+                  <h5> Adam R.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
@@ -1397,7 +1400,7 @@ const Home = () => {
                 helpful. I highly recommend it to anyone!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFiveGirl} alt="" />
                 <div className="client-info">
                   <h5>Sarah L.</h5>
                   <p>Outstanding Quality!</p>
@@ -1448,7 +1451,7 @@ const Home = () => {
                 amazing quality. I couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceOneGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily S.</h5>
                   <p>Excellent Service!</p>
@@ -1466,7 +1469,7 @@ const Home = () => {
                 back!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Daniel R.</h5>
                   <p> Absolutely Amazing!</p>
@@ -1486,7 +1489,7 @@ const Home = () => {
                 in the market!"
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily R.</h5>
                   <p> Fantastic Service!</p>
@@ -1503,9 +1506,9 @@ const Home = () => {
                 delivered on time and just as promised. Couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourBoy} alt="" />
                 <div className="client-info">
-                  <h5> Noah K.</h5>
+                  <h5> Adam R..</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
@@ -1538,7 +1541,7 @@ const Home = () => {
                 helpful. I highly recommend it to anyone!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFiveGirl} alt="" />
                 <div className="client-info">
                   <h5>Sarah L.</h5>
                   <p>Outstanding Quality!</p>
@@ -1589,7 +1592,7 @@ const Home = () => {
                 amazing quality. I couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceOneGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily S.</h5>
                   <p>Excellent Service!</p>
@@ -1607,7 +1610,7 @@ const Home = () => {
                 back!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Daniel R.</h5>
                   <p> Absolutely Amazing!</p>
@@ -1627,7 +1630,7 @@ const Home = () => {
                 in the market!"
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily R.</h5>
                   <p> Fantastic Service!</p>
@@ -1644,9 +1647,9 @@ const Home = () => {
                 delivered on time and just as promised. Couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourBoy} alt="" />
                 <div className="client-info">
-                  <h5> Noah M.</h5>
+                  <h5> Adam R.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
@@ -1679,7 +1682,7 @@ const Home = () => {
                 helpful. I highly recommend it to anyone!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFiveGirl} alt="" />
                 <div className="client-info">
                   <h5>Sarah L.</h5>
                   <p>Outstanding Quality!</p>
@@ -1730,7 +1733,7 @@ const Home = () => {
                 amazing quality. I couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceOneGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily S.</h5>
                   <p>Excellent Service!</p>
@@ -1748,7 +1751,7 @@ const Home = () => {
                 back!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Daniel R.</h5>
                   <p> Absolutely Amazing!</p>
@@ -1768,7 +1771,7 @@ const Home = () => {
                 in the market!"
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily R.</h5>
                   <p> Fantastic Service!</p>
@@ -1785,9 +1788,9 @@ const Home = () => {
                 delivered on time and just as promised. Couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceOneBoy} alt="" />
                 <div className="client-info">
-                  <h5> Noah J.</h5>
+                  <h5> Noah W.</h5>
                   <p> Outstanding Quality!</p>
                 </div>
               </div>
@@ -1820,7 +1823,7 @@ const Home = () => {
                 helpful. I highly recommend it to anyone!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFiveGirl} alt="" />
                 <div className="client-info">
                   <h5>Sarah L.</h5>
                   <p>Outstanding Quality!</p>
@@ -1871,7 +1874,7 @@ const Home = () => {
                 amazing quality. I couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceOneGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily S.</h5>
                   <p>Excellent Service!</p>
@@ -1889,7 +1892,7 @@ const Home = () => {
                 back!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Daniel R.</h5>
                   <p> Absolutely Amazing!</p>
