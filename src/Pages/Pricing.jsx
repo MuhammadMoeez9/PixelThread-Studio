@@ -118,101 +118,164 @@ const Pricing = () => {
             <p>Choose the perfect plan and order now!</p>
           </div>
           <div id="plans">
-            {[1, 2, 3].map((_, index) => (
-              <div
-                key={index}
-                className={`pricing-card-${index % 2 ? "2" : ""}`}
-              >
-                <div className={`card-top-${index % 2 ? "2" : ""}`}>
-                  <h3>Full Back</h3>
-                  <span>Embroidery Digitizing</span>
-                </div>
-                <div className={`center-${index % 2 ? "2" : ""}`}>
-                  <h1>$49.0</h1>
-                  <button className={`order-btn-${index % 2 ? "2" : ""}`}>
-                    Order Now
-                  </button>
-                </div>
-                <div className={`features-${index % 2 ? "2" : ""}`}>
-                  <p>
-                    <i className="ri-check-double-line" /> Full back or other
-                  </p>
-                  <p>
-                    <i className="ri-check-double-line" /> Maximum $200
-                  </p>
-                  <p>
-                    <i className="ri-check-double-line" /> Revision, Edits,
-                    Changes Free
-                  </p>
-                  <p>
-                    <i className="ri-check-double-line" /> Contact us for
-                    special discount
-                  </p>
-                  <p>
-                    <i className="ri-check-double-line" /> 24 Hrs Support
-                  </p>
-                </div>
+            <div className="pricing-card-2">
+              <div className="card-top-2">
+                <h3>Full Back</h3>
+                <span>Embroidery Digitizing</span>
               </div>
-            ))}
+              <div className="center-2">
+                <h1>$49.0</h1>
+                <button className="order-btn-2">Order Now</button>
+              </div>
+              <div className="features-2">
+                <p>
+                  <i className="ri-check-double-line" />
+                  Full back or other
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  Maximum $200
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  Revision, Edits, Changes Free
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  Contact us for special discount
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  24 Hrs Support
+                </p>
+              </div>
+            </div>
+            <div className="pricing-card">
+              <div className="card-top">
+                <h3>Full Back</h3>
+                <span>Embroidery Digitizing</span>
+              </div>
+              <div className="center">
+                <h1>$49.0</h1>
+                <button className="order-btn">Order Now</button>
+              </div>
+              <div className="features">
+                <p>
+                  <i className="ri-check-double-line" />
+                  Full back or other
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  Maximum $200
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  Revision, Edits, Changes Free
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  Contact us for special discount
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  24 Hrs Support
+                </p>
+              </div>
+            </div>
+            <div className="pricing-card-2">
+              <div className="card-top-2">
+                <h3>Full Back</h3>
+                <span>Embroidery Digitizing</span>
+              </div>
+              <div className="center-2">
+                <h1>$49.0</h1>
+                <button className="order-btn-2">Order Now</button>
+              </div>
+              <div className="features-2">
+                <p>
+                  <i className="ri-check-double-line" />
+                  Full back or other
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  Maximum $200
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  Revision, Edits, Changes Free
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  Contact us for special discount
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  24 Hrs Support
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="footer">
+          <div id="footer-left">
+            <div id="l-top">
+              <h4>
+                CONTACT NOW FOR SERVICES <br /> AND EXCLUSIVE OFFERS!
+              </h4>
+              <div id="l-top-img">
+                <img src="./Assets/footer image-01.png" alt="" />
+                <p>2000+ satisfied customers </p>
+              </div>
+            </div>
+            <div className="l-btm">
+              <div className="box">
+                <h2>Company</h2>
+                <ul>
+                  <li>Home</li>
+                  <li>Our Services</li>
+                  <li>About Us</li>
+                  <li>Contact</li>
+                </ul>
+              </div>
+              <div className="box">
+                <h2>Contact</h2>
+                <ul>
+                  <li>info@pixelthreadstudio.com</li>
+                  <li>career@pixelthreadstudio.com</li>
+                </ul>
+              </div>
+              <div className="box">
+                <h2>Location</h2>
+                <ul>
+                  <li>123 Boulevard</li>
+                  <li>USA ABC 1223</li>
+                </ul>
+              </div>
+            </div>
+            <div className="social-links">
+              <div id="social">
+                <i className="ri-facebook-circle-fill" />
+                <i className="ri-instagram-fill" />
+                <i className="ri-twitter-x-fill" />
+                <i className="ri-whatsapp-fill" />
+                <i className="ri-linkedin-box-fill" />
+              </div>
+              <div id="line" />
+            </div>
+          </div>
+          <div id="footer-right">
+            <div className="contact-container">
+              <input type="text" placeholder="Name" />
+              <input type="email" placeholder="Email Address" />
+              <input
+                className="message-box"
+                placeholder="Write something here..."
+              />
+              <button className="send-btn">Send Email</button>
+            </div>
           </div>
         </div>
       </div>
-      <footer id="footer">
-        <div id="footer-left">
-          <div id="l-top">
-            <h4>CONTACT NOW FOR SERVICES AND EXCLUSIVE OFFERS!</h4>
-            <div id="l-top-img">
-              <img src={footerimage01} alt="" />
-              <p>2000+ satisfied customers </p>
-            </div>
-          </div>
-          <div className="l-btm">
-            <div className="box">
-              <h2>Company</h2>
-              <ul>
-                <li>Home</li>
-                <li>Our Services</li>
-                <li>About Us</li>
-                <li>Contact</li>
-              </ul>
-            </div>
-            <div className="box">
-              <h2>Contact</h2>
-              <ul>
-                <li>info@pixelthreadstudio.com</li>
-                <li>career@pixelthreadstudio.com</li>
-              </ul>
-            </div>
-            <div className="box">
-              <h2>Location</h2>
-              <ul>
-                <li>123 Boulevard</li>
-                <li>USA ABC 1223</li>
-              </ul>
-            </div>
-          </div>
-          <div className="social-links">
-            <div id="social">
-              <i className="ri-facebook-circle-fill" />
-              <i className="ri-instagram-fill" />
-              <i className="ri-twitter-x-fill" />
-              <i className="ri-whatsapp-fill" />
-              <i className="ri-linkedin-box-fill" />
-            </div>
-          </div>
-        </div>
-        <div id="footer-right">
-          <div className="contact-container">
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email Address" />
-            <input
-              className="message-box"
-              placeholder="Write something here..."
-            />
-            <button className="send-btn">Send Email</button>
-          </div>
-        </div>
-      </footer>
     </>
   );
 };
