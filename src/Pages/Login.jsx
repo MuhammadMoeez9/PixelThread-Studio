@@ -26,27 +26,28 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setMessage("");
     setLoading(true);
-
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-      toast.success("Login successful! Redirecting to Home...", {
+      toast.success("Login successful! Redirecting...", {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 2000,
       });
 
       setTimeout(() => {
-        navigate("/");
-      }, 3000);
+        navigate("/"); // Navigate to home page after successful login
+      }, 2000);
     } catch (error) {
-      setMessage("Invalid email or password.");
-      toast.error("Invalid email or password.", {
+      console.error("Login error:", error);
+      toast.error(`Error: ${error.message}`, {
         position: "top-center",
         autoClose: 3000,
       });
-      console.error("Login Error:", error);
     } finally {
       setLoading(false);
     }

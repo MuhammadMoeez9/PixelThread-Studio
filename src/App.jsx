@@ -22,32 +22,13 @@ import AboutAnimation from "./Pages/AboutAnimation";
 import HomeAnimation from "./Pages/HomeAnimation";
 // import Loader from "./Component/Loader"
 
-const RedirectIfAuthenticated = ({ children }) => {
-  const { user } = useAuth();
-  return user ? <Navigate to="/" replace /> : children;
-};
-
 function App() {
   return (
     <Router>
       <AuthProvider>
         <Routes>
-          <Route
-            path="/login"
-            element={
-              <RedirectIfAuthenticated>
-                <Login />
-              </RedirectIfAuthenticated>
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <RedirectIfAuthenticated>
-                <Register />
-              </RedirectIfAuthenticated>
-            }
-          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/Service" element={<ProjectsPage />} />
           <Route path="/project/:id" element={<ProjectDetailPage />} />
           <Route path="/admin" element={<Admin />} />

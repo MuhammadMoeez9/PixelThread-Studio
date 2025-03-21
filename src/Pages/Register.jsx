@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
+import {
+  createUserWithEmailAndPassword,
+  signOut, // Import signOut function
+} from "firebase/auth";
+import { doc, setDoc, Timestamp } from "firebase/firestore";
 import { auth, db } from "../Component/Firebase";
 import { useNavigate } from "react-router-dom";
 import {
@@ -48,8 +51,9 @@ const Register = () => {
         email,
         password
       );
-      const userDocRef = doc(db, "users", userCredential.user.uid);
 
+      // Store user data in Firestore
+      const userDocRef = doc(db, "users", userCredential.user.uid);
       const pakistanTimestamp = moment().tz("Asia/Karachi").toDate();
       const firestoreTimestamp = Timestamp.fromDate(pakistanTimestamp);
 
@@ -60,15 +64,16 @@ const Register = () => {
         createdAt: firestoreTimestamp,
       });
 
-      toast.success("Account created successfully!", {
+      // Sign out the user immediately after registration
+      await signOut(auth);
+
+      toast.success("Account created successfully! Redirecting to login...", {
         position: "top-center",
         autoClose: 3000,
       });
-      setShowConfetti(true);
 
       setTimeout(() => {
-        setShowConfetti(false);
-        navigate("/login");
+        navigate("/login"); // Navigate to login page
       }, 3000);
     } catch (error) {
       console.error("Error registering user:", error);
