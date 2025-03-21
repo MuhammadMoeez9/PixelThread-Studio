@@ -6,6 +6,7 @@ import { db } from "../Component/Firebase"; // Ensure correct import paths
 import "./Home.css";
 import "../App.css";
 import "remixicon/fonts/remixicon.css";
+// import Typed from "react-typed";
 import logo from "../assets/300x100-01.png";
 import boy3 from "../assets/boy3.png";
 import flag01 from "../assets/flag01.png";
@@ -175,7 +176,7 @@ const Home = () => {
                 <span>Hello</span>
                 <h1>
                   We Are Professional Vector And Embroidery Digitizing{" "}
-                  <span>Agency.</span>
+                  <span>Agency</span>
                 </h1>
                 <p>
                   Get high quality vector conversions and precise embroidery

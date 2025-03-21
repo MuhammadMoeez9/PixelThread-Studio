@@ -20,6 +20,7 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import AboutAnimation from "./Pages/AboutAnimation";
 import HomeAnimation from "./Pages/HomeAnimation";
+import Pricing from "./Pages/Pricing";
 // import Loader from "./Component/Loader"
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/project/:id" element={<ProjectDetailPage />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/About" element={<About />} />
+          <Route path="/Pricing" element={<Pricing />} />
           <Route path="/Upload" element={<UploadForm />} />
           <Route path="/Animation" element={<AboutAnimation />} />
           <Route path="/" element={<HomeAnimation />} />
