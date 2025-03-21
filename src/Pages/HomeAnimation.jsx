@@ -16,7 +16,7 @@ const HomeAnimation = () => {
       {!animationDone ? (
         <div className="blur-text-container">
           <BlurText
-            text={["Welcome to", "PixelThread Studio"]}
+            text={["Beyond Today", "", "Ahead Tomorrow!"]}
             delay={150}
             animateBy="words"
             direction="top"

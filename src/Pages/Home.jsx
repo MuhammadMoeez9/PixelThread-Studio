@@ -1975,28 +1975,26 @@ const Home = () => {
         </div>
         <div id="footer-right">
           <div className="contact-container">
-            <form className="contact-container">
-              <input
-                type="text"
-                name="user_name"
-                placeholder="Your Name"
-                required
-              />
-              <input
-                type="email"
-                name="user_email"
-                placeholder="Your Email Address"
-                required
-              />
-              <input
-                className="message-box"
-                placeholder="Your Message..."
-                required
-              />
-              <button type="submit" className="send-btn">
-                Send Email
-              </button>
-            </form>
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Your Name"
+              required
+            />
+            <input
+              type="email"
+              name="user_email"
+              placeholder="Your Email Address"
+              required
+            />
+            <input
+              className="message-box"
+              placeholder="Your Message..."
+              required
+            />
+            <button type="submit" className="send-btn">
+              Send Email
+            </button>
           </div>
         </div>
       </div>

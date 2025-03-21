@@ -12,6 +12,11 @@ import BrotherStellaireembroiderymachineThumbnail from "../assets/BrotherStellai
 import BrotherStellaireembroiderymachineVideo from "../assets/BrotherStellaireembroiderymachine.mp4";
 import FadeInSection from "../Component/FadeInSection";
 import reviewscardelem03 from "../assets/reviewscardelem03.png";
+import aboutimage01 from "../assets/About-images/aboutimage01.png";
+import aboutimage02 from "../assets/About-images/aboutimage02.png";
+import aboutimage03 from "../assets/About-images/aboutimage03.png";
+import aboutimage04 from "../assets/About-images/aboutimage04.png";
+import footerimage01 from "../assets/footerimage01.png";
 
 const About = () => {
   const [user, setUser] = useState(null);
@@ -222,7 +227,7 @@ const About = () => {
         <div id="journey">
           <div className="service-story">
             <div className="s-left">
-              <img src="./Assets/about-image-01.png" alt="" />
+              <img src={aboutimage01} alt="Embroidery Digitizing Image" />
             </div>
             <FadeInSection>
               <div className="s-right">
@@ -249,12 +254,12 @@ const About = () => {
               </div>
             </FadeInSection>
             <div className="s-left">
-              <img src="./Assets/about-image-02.png" alt="" />
+              <img src={aboutimage02} alt="" />
             </div>
           </div>
           <div className="service-story">
             <div className="s-left">
-              <img src="./Assets/about-image-03.png" alt="" />
+              <img src={aboutimage03} alt="" />
             </div>
             <FadeInSection>
               <div className="s-right">
@@ -282,7 +287,7 @@ const About = () => {
               </div>
             </FadeInSection>
             <div className="s-left">
-              <img src="./Assets/about-image-02.png" alt="" />
+              <img src={aboutimage04} alt="" />
             </div>
           </div>
         </div>
@@ -450,7 +455,7 @@ const About = () => {
               CONTACT NOW FOR SERVICES <br /> AND EXCLUSIVE OFFERS!
             </h4>
             <div id="l-top-img">
-              <img src="./Assets/footer image-01.png" alt="" />
+              <img src={footerimage01} alt="" />
               <p>2000+ satisfied customers </p>
             </div>
           </div>

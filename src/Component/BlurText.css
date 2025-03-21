@@ -1,11 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
 /* Main container */
 .blur-text-container {
   display: flex;
-  align-items: center; /* Centers vertically (Y-axis) */
-  justify-content: center; /* Centers horizontally (X-axis) */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
   height: 100vh; /* Full viewport height */
   width: 100vw; /* Full viewport width */
-  background-color: black;
+  background-color: #7600ff;
   color: white;
   text-align: center;
   padding: 20px;
@@ -13,14 +21,16 @@
 
 /* Default text styling */
 .blur-text-container p {
-  font-size: 3vw;
+  font-size: 5vw; /* Default for larger screens */
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.3;
   max-width: 90%;
   white-space: nowrap; /* Prevent wrapping by default */
   display: flex;
-  align-items: center; /* Ensures text inside is also centered */
+  align-items: center;
   justify-content: center;
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
 }
 
 /* Highlighted text */
@@ -29,13 +39,17 @@
   font-weight: bold;
 }
 
-/* 🔹 Mobile Devices (upto 450px) */
+/* 🔹 Mobile Devices (Up to 450px) */
 @media (max-width: 450px) {
+  .blur-text-container {
+    padding: 10px; /* Reduce padding for better fit */
+  }
+
   .blur-text-container p {
-    font-size: 4vw;
-    white-space: normal; /* Allow wrapping */
+    font-size: 7vw; /* Bigger font size */
+    white-space: normal; /* Allow text to wrap */
     display: flex;
-    flex-direction: column; /* Ensures text stacks properly */
+    flex-direction: column; /* Stack text */
     align-items: center;
     justify-content: center;
   }
@@ -44,21 +58,21 @@
 /* 🔹 Tablets (451px - 768px) */
 @media (min-width: 451px) and (max-width: 768px) {
   .blur-text-container p {
-    font-size: 5vw;
-    white-space: normal;
+    font-size: 6vw; /* Larger font size */
+    white-space: normal; /* Allow wrapping */
   }
 }
 
 /* 🔹 Laptops (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .blur-text-container p {
-    font-size: 4vw;
+    font-size: 5vw; /* Adjust font size */
   }
 }
 
 /* 🔹 Desktops (Above 1024px) */
 @media (min-width: 1025px) {
   .blur-text-container p {
-    font-size: 3vw;
+    font-size: 4vw; /* Keep it readable */
   }
 }
