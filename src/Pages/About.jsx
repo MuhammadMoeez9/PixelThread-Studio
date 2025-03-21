@@ -1,4 +1,5 @@
 import React from "react";
+import "remixicon/fonts/remixicon.css";
 import "./About.css";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
@@ -10,6 +11,7 @@ import logo from "../assets/300x100-01.png";
 import BrotherStellaireembroiderymachineThumbnail from "../assets/BrotherStellaireembroiderymachineThumbnail.png";
 import BrotherStellaireembroiderymachineVideo from "../assets/BrotherStellaireembroiderymachine.mp4";
 import FadeInSection from "../Component/FadeInSection";
+import reviewscardelem03 from "../assets/reviewscardelem03.png";
 
 const About = () => {
   const [user, setUser] = useState(null);
@@ -19,27 +21,24 @@ const About = () => {
   const [isOpen, setIsOpen] = useState(false);
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(true); // ✅ Define setLoading
-  // ✅ Toggle Mobile Menu
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
-  // ✅ Close mobile menu if screen size is large (above 768px)
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setIsOpen(false);
-      }
-    };
+    const menuIcon = document.querySelector(".ri-menu-fill");
+    const closeIcon = document.querySelector("#close-i");
+    const fullScrNav = document.getElementById("fullScrNav");
 
-    // Add event listener
-    window.addEventListener("resize", handleResize);
+    if (menuIcon && closeIcon && fullScrNav) {
+      const openMenu = () => fullScrNav.classList.add("active");
+      const closeMenu = () => fullScrNav.classList.remove("active");
 
-    // Initial check (in case user loads on large screen)
-    handleResize();
+      menuIcon.addEventListener("click", openMenu);
+      closeIcon.addEventListener("click", closeMenu);
 
-    // Cleanup event listener on unmount
-    return () => window.removeEventListener("resize", handleResize);
+      return () => {
+        menuIcon.removeEventListener("click", openMenu);
+        closeIcon.removeEventListener("click", closeMenu);
+      };
+    }
   }, []);
 
   // ✅ Firebase Authentication Check
@@ -80,55 +79,48 @@ const About = () => {
         <div id="upper-nav">
           <h2>Get 40% Off on your first order!</h2>
         </div>
-
         <nav>
-          <img src={logo} alt="Logo" />
-
-          {/* Desktop Navigation */}
-          <div id="links" className="desktop-nav">
-            <Link to="/">Portfolio</Link> {/* ✅ Updated navigation */}
-            <a href="#">Pricing</a>
-            <a href="./Service-page/index.html">Services</a>
-            <Link to="/About">About</Link> {/* ✅ Updated navigation */}
-            <a href="./contact-page/index.html">Contact</a>
+          <Link to="/">
+            <img src={logo} alt="" />
+          </Link>
+          <div id="links">
+            <Link to="/portfolio">Portfolio</Link>
+            <Link to="/pricing">Pricing</Link>
+            <Link to="/services">Services</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
           </div>
-
-          {/* Mobile Navigation Toggle */}
           <div id="menu">
-            {user ? (
+            {loading ? (
+              <p>Loading...</p>
+            ) : user ? (
               <button onClick={handleLogout}>Logout</button>
             ) : (
-              <button>Login</button>
+              <Link to="/login">
+                <button>Login</button>
+              </Link>
             )}
 
-            {/* <img src={reviewscardelem03} alt="User Icon" /> */}
+            <img src={reviewscardelem03} alt="User Icon" />
 
-            <button className="btn mobile-nav-btn" onClick={toggleMenu}>
-              {isOpen ? "Close Navbar" : <i className="ri-menu-fill"></i>}
+            <button className="btn mobile-nav-btn">
+              <i className="ri-menu-fill"></i>
             </button>
           </div>
-        </nav>
 
-        {/* Mobile Navigation */}
-        <div className={`mobile-nav ${isOpen ? "active" : ""}`}>
-          <ul>
-            <li>
-              <a href="./Portfolio-page/index.html">Portfolio</a>
-            </li>
-            <li>
-              <a href="#">Pricing</a>
-            </li>
-            <li>
-              <a href="./Service-page/index.html">Services</a>
-            </li>
-            <li>
-              <Link to="/About">About</Link> {/* ✅ Updated navigation */}
-            </li>
-            <li>
-              <a href="./contact-page/index.html">Contact</a>
-            </li>
-          </ul>
-        </div>
+          <div id="fullScrNav">
+            <div id="close-i">
+              <i className="ri-close-fill" />
+            </div>
+            <div id="fullScrLinks">
+              <Link to="/portfolio">Portfolio</Link>
+              <Link to="/pricing">Pricing</Link>
+              <Link to="/services">Services</Link>
+              <Link to="/about">About</Link>
+              <Link to="/contact">Contact</Link>
+            </div>
+          </div>
+        </nav>
         {/* <div id="main"> */}
         <FadeInSection>
           <div id="about-page">

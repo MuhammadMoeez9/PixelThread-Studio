@@ -5,6 +5,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../Component/Firebase"; // Ensure correct import paths
 import "./Home.css";
 import "../App.css";
+import "remixicon/fonts/remixicon.css";
 import logo from "../assets/300x100-01.png";
 import boy3 from "../assets/boy3.png";
 import flag01 from "../assets/flag01.png";
@@ -55,6 +56,7 @@ import FaceThreeGirl from "/src/assets/Clients/FaceOneGirl.jpeg";
 import FaceOneBoy from "/src/assets/Clients/FaceOneBoy.jpeg";
 import FaceTwoBoy from "/src/assets/Clients/FaceOneBoy.jpeg";
 import FaceThreeBoy from "/src/assets/Clients/FaceOneBoy.jpeg";
+import footerimage01 from "../assets/footerimage01.png";
 
 const Home = () => {
   const [user, setUser] = useState(null);
@@ -65,6 +67,25 @@ const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const videoRef = useRef(null);
   const videoUrl = "/assets/BrotherStellaireembroiderymachine.MP4";
+
+  useEffect(() => {
+    const menuIcon = document.querySelector(".ri-menu-fill");
+    const closeIcon = document.querySelector("#close-i");
+    const fullScrNav = document.getElementById("fullScrNav");
+
+    if (menuIcon && closeIcon && fullScrNav) {
+      const openMenu = () => fullScrNav.classList.add("active");
+      const closeMenu = () => fullScrNav.classList.remove("active");
+
+      menuIcon.addEventListener("click", openMenu);
+      closeIcon.addEventListener("click", closeMenu);
+
+      return () => {
+        menuIcon.removeEventListener("click", openMenu);
+        closeIcon.removeEventListener("click", closeMenu);
+      };
+    }
+  }, []);
 
   // ✅ Firebase Authentication Check
   useEffect(() => {
@@ -105,13 +126,15 @@ const Home = () => {
           <h2>Get 40% Off on your first order!</h2>
         </div>
         <nav>
-          <img src={logo} alt="" />
+          <Link to="/">
+            <img src={logo} alt="" />
+          </Link>
           <div id="links">
-            <a href="./Portfolio-page/index.html">Portfolio</a>
-            <a href="#">Pricing</a>
-            <a href="./Service-page/index.html">Services</a>
-            <a href="./About-page/index.html">About</a>
-            <a href="./contact-page/index.html">Contact</a>
+            <Link to="/portfolio">Portfolio</Link>
+            <Link to="/pricing">Pricing</Link>
+            <Link to="/services">Services</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
           </div>
           <div id="menu">
             {loading ? (
@@ -130,28 +153,21 @@ const Home = () => {
               <i className="ri-menu-fill"></i>
             </button>
           </div>
+
+          <div id="fullScrNav">
+            <div id="close-i">
+              <i className="ri-close-fill" />
+            </div>
+            <div id="fullScrLinks">
+              <Link to="/portfolio">Portfolio</Link>
+              <Link to="/pricing">Pricing</Link>
+              <Link to="/services">Services</Link>
+              <Link to="/about">About</Link>
+              <Link to="/contact">Contact</Link>
+            </div>
+          </div>
         </nav>
 
-        {/* Mobile Navigation */}
-        <div className={`mobile-nav ${isOpen ? "active" : ""}`}>
-          <ul>
-            <li>
-              <a href="./Portfolio-page/index.html">Portfolio</a>
-            </li>
-            <li>
-              <a href="#">Pricing</a>
-            </li>
-            <li>
-              <a href="./Service-page/index.html">Services</a>
-            </li>
-            <li>
-              <Link to="/About">About</Link> {/* ✅ Updated navigation */}
-            </li>
-            <li>
-              <a href="./contact-page/index.html">Contact</a>
-            </li>
-          </ul>
-        </div>
         <div id="page-1-hero-section">
           <div id="hero-sec-1">
             <div id="hero-left">
@@ -1917,7 +1933,7 @@ const Home = () => {
               CONTACT NOW FOR SERVICES <br /> AND EXCLUSIVE OFFERS!
             </h4>
             <div id="l-top-img">
-              <img src="./Assets/footer image-01.png" alt="" />
+              <img src={footerimage01} alt="" />
               <p>2000+ satisfied customers </p>
             </div>
           </div>
