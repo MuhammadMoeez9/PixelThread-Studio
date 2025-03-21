@@ -209,6 +209,7 @@ const About = () => {
               <div
                 id="btm-right"
                 onMouseEnter={() => videoRef.current.play()}
+                onMouseOver={() => videoRef.current.play()}
                 onMouseLeave={() => videoRef.current.pause()}
               >
                 <img src={BrotherStellaireembroiderymachineThumbnail} alt="" />
