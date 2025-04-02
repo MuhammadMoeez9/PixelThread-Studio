@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  createUserWithEmailAndPassword,
-  signOut, // Import signOut function
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, setDoc, Timestamp } from "firebase/firestore";
 import { auth, db } from "../Component/Firebase";
 import { useNavigate } from "react-router-dom";
@@ -14,9 +11,6 @@ import {
   Paper,
   CircularProgress,
 } from "@mui/material";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Confetti from "react-confetti";
 import moment from "moment-timezone";
 
 const Register = () => {
@@ -28,23 +22,14 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showConfetti, setShowConfetti] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [errorMessage, setErrorMessage] = useState(""); // Error state
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-      setWindowHeight(window.innerHeight);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setErrorMessage(""); // Reset error before attempting registration
+
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -67,20 +52,20 @@ const Register = () => {
       // Sign out the user immediately after registration
       await signOut(auth);
 
-      toast.success("Account created successfully! Redirecting to login...", {
-        position: "top-center",
-        autoClose: 3000,
-      });
-
       setTimeout(() => {
-        navigate("/login"); // Navigate to login page
+        navigate("/login");
       }, 3000);
     } catch (error) {
       console.error("Error registering user:", error);
-      toast.error(`Error: ${error.message}`, {
-        position: "top-center",
-        autoClose: 3000,
-      });
+
+      // 🔹 Handle Firebase errors
+      if (error.code === "auth/email-already-in-use") {
+        setErrorMessage("Email is Already in Use");
+      } else {
+        setErrorMessage(
+          error.message || "Something went wrong! Please try again."
+        );
+      }
     } finally {
       setLoading(false);
     }
@@ -94,10 +79,8 @@ const Register = () => {
         justifyContent: "center",
         alignItems: "center",
         minHeight: "100vh",
-        position: "relative",
       }}
     >
-      {showConfetti && <Confetti width={windowWidth} height={windowHeight} />}
       <Paper elevation={3} style={{ padding: "2rem", width: "100%" }}>
         <Typography variant="h5" align="center" gutterBottom>
           Register
@@ -130,6 +113,8 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+
+          {/* 🔹 Register Button */}
           <Button
             type="submit"
             variant="contained"
@@ -140,7 +125,19 @@ const Register = () => {
           >
             {loading ? <CircularProgress size={24} /> : "Register"}
           </Button>
+
+          {/* 🔹 Error Message (Shown only if error occurs) */}
+          {errorMessage && (
+            <Typography
+              variant="body2"
+              color="error"
+              style={{ marginTop: "0.5rem", textAlign: "center" }}
+            >
+              {errorMessage}
+            </Typography>
+          )}
         </form>
+
         <Button
           onClick={() => navigate("/login")}
           color="primary"

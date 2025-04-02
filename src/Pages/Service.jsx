@@ -1,6 +1,6 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import "./Service.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/300x100-01.png";
 import reviewscardelem03 from "../assets/reviewscardelem03.png";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"; // Firebase Auth
@@ -28,11 +28,35 @@ import elements07 from "../assets/elements07.png";
 import elements08 from "../assets/elements08.png";
 
 const Service = () => {
-  const [loading, setLoading] = useState(true);
-  const auth = getAuth();
   const [user, setUser] = useState(null);
   const [role, setRole] = useState("");
+  const [loading, setLoading] = useState(true);
+  const auth = getAuth();
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const videoRef = useRef(null);
+  const videoUrl = "/assets/BrotherStellaireembroiderymachine.MP4";
 
+  useEffect(() => {
+    const menuIcon = document.querySelector(".ri-menu-fill");
+    const closeIcon = document.querySelector("#close-i");
+    const fullScrNav = document.getElementById("fullScrNav");
+
+    if (menuIcon && closeIcon && fullScrNav) {
+      const openMenu = () => fullScrNav.classList.add("active");
+      const closeMenu = () => fullScrNav.classList.remove("active");
+
+      menuIcon.addEventListener("click", openMenu);
+      closeIcon.addEventListener("click", closeMenu);
+
+      return () => {
+        menuIcon.removeEventListener("click", openMenu);
+        closeIcon.removeEventListener("click", closeMenu);
+      };
+    }
+  }, []);
+
+  // ✅ Firebase Authentication Check
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
@@ -116,7 +140,7 @@ const Service = () => {
               <Link to="/services">Services</Link>
               <Link to="/about">About</Link>
               <Link to="/contact">Contact</Link>
-              <Link to="/Admin">Admin</Link>
+              {role === "admin" && <Link to="/Admin">Admin</Link>}
             </div>
           </div>
         </nav>

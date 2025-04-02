@@ -19,7 +19,6 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
-
 #fullScrNav {
   position: absolute;
   height: 100vh;

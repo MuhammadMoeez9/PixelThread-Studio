@@ -116,6 +116,7 @@ const Pricing = () => {
               <Link to="/services">Services</Link>
               <Link to="/about">About</Link>
               <Link to="/contact">Contact</Link>
+              {role === "admin" && <Link to="/Admin">Admin</Link>}
             </div>
           </div>
         </nav>
