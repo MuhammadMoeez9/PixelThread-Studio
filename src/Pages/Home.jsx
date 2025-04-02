@@ -144,7 +144,14 @@ const Home = () => {
             {loading ? (
               <p>Loading...</p>
             ) : user ? (
-              <button onClick={handleLogout}>Logout</button>
+              <>
+                {role === "admin" && (
+                  <div className="admin-btn-container">
+                    <button onClick={() => navigate("/Admin")}>Admin</button>
+                  </div>
+                )}
+                <button onClick={handleLogout}>Logout</button>
+              </>
             ) : (
               <Link to="/login">
                 <button>Login</button>
@@ -168,6 +175,7 @@ const Home = () => {
               <Link to="/services">Services</Link>
               <Link to="/about">About</Link>
               <Link to="/contact">Contact</Link>
+              <Link to="/Admin">Admin</Link>
             </div>
           </div>
         </nav>

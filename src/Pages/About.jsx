@@ -7,7 +7,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../Component/Firebase"; // Adjust this import path to your Firebase config
-import logo from "../assets/300x100-01.png";
+import Logo from "../assets/300x100-01.png";
 import BrotherStellaireembroiderymachineThumbnail from "../assets/BrotherStellaireembroiderymachineThumbnail.png";
 import BrotherStellaireembroiderymachineVideo from "../assets/BrotherStellaireembroiderymachine.mp4";
 import FadeInSection from "../Component/FadeInSection";
@@ -86,7 +86,7 @@ const About = () => {
         </div>
         <nav>
           <Link to="/">
-            <img src={logo} alt="" />
+            <img src={Logo} alt="" />
           </Link>
           <div id="links">
             <Link to="/portfolio">Portfolio</Link>
@@ -99,7 +99,14 @@ const About = () => {
             {loading ? (
               <p>Loading...</p>
             ) : user ? (
-              <button onClick={handleLogout}>Logout</button>
+              <>
+                {role === "admin" && (
+                  <div className="admin-btn-container">
+                    <button onClick={() => navigate("/Admin")}>Admin</button>
+                  </div>
+                )}
+                <button onClick={handleLogout}>Logout</button>
+              </>
             ) : (
               <Link to="/login">
                 <button>Login</button>

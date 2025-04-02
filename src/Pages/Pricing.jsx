@@ -85,7 +85,14 @@ const Pricing = () => {
             {loading ? (
               <p>Loading...</p>
             ) : user ? (
-              <button onClick={handleLogout}>Logout</button>
+              <>
+                {role === "admin" && (
+                  <div className="admin-btn-container">
+                    <button onClick={() => navigate("/Admin")}>Admin</button>
+                  </div>
+                )}
+                <button onClick={handleLogout}>Logout</button>
+              </>
             ) : (
               <Link to="/login">
                 <button>Login</button>

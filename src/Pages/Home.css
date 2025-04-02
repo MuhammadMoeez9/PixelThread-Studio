@@ -1095,6 +1095,7 @@ nav button:hover {
 }
 .testimonials-card > img {
   width: 50%;
+  border-radius: 50px;
   padding-top: 30px;
 }
 .testimonials-card > p {
@@ -1387,6 +1388,9 @@ nav button:hover {
   }
 }
 @media (max-width: 425px) {
+  .admin-btn-container {
+    display: none; /* Hide the Admin button on mobile */
+  }
   #page-3-cards {
     padding: 0 0;
   }
