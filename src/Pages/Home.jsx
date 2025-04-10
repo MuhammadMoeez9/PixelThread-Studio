@@ -5,6 +5,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../Component/Firebase"; // Ensure correct import paths
 import "./Home.css";
 import "../App.css";
+import gsap from "gsap";
 import "remixicon/fonts/remixicon.css";
 // import Typed from "react-typed";
 import logo from "../assets/300x100-01.png";
@@ -90,6 +91,63 @@ const Home = () => {
       };
     }
   }, []);
+
+  // FAQ
+
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const faqs = [
+    {
+      question: "Can I avail the free trial for check quality and time?",
+      answer: "Yes, you can avail a free trial to check the quality and time.",
+    },
+    {
+      question: "How can I place the order?",
+      answer:
+        "You can place the order by visiting our website and filling out the order form.",
+    },
+    {
+      question: "How do I request a Quote/Estimate?",
+      answer:
+        "You can request a quote by submitting your requirements through our contact form.",
+    },
+    {
+      question: "How much do you charge for digitizing?",
+      answer:
+        "Our charges for digitizing depend on the complexity and size of the design.",
+    },
+  ];
+
+  useEffect(() => {
+    let tl = gsap.timeline();
+
+    tl.from("#loader h3", {
+      x: 35,
+      stagger: 0.2,
+      opacity: 0,
+      duration: 1,
+    });
+
+    tl.to("#loader h3", {
+      x: -35,
+      stagger: 0.1,
+      opacity: 0,
+      duration: 1,
+    });
+
+    tl.to("#loader", {
+      opacity: 0,
+      duration: 1,
+      onComplete: () => {
+        document.querySelector("#loader").style.display = "none";
+      },
+    });
+  }, []);
+
+  const toggleFAQ = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+  // FAQ ending
 
   // ✅ Firebase Authentication Check
   useEffect(() => {
@@ -1921,24 +1979,36 @@ const Home = () => {
           </p>
         </div>
         <div id="page-8-left">
-          <div className="content">
-            <h2>Can I avail the free triral for cheak quality and time?</h2>
-            <i className="ri-arrow-down-line" />
-          </div>
-          <div className="content">
-            <h2>How can i place the order?</h2>
-            <i className="ri-arrow-down-line" />
-          </div>
-          <div className="content">
-            <h2>How do i request for Quote/Estimate?</h2>
-            <i className="ri-arrow-down-line" />
-          </div>
-          <div className="content">
-            <h2>How much do you charge for digitizing?</h2>
-            <i className="ri-arrow-down-line" />
-          </div>
+          {faqs.map((faq, index) => (
+            <div key={index}>
+              <div
+                className={`content ${activeIndex === index ? "active" : ""}`}
+                onClick={() => toggleFAQ(index)}
+              >
+                <h2 className="">{faq.question}</h2>
+                <i
+                  className={`ri-arrow-down-line ${
+                    activeIndex === index ? "rotated" : ""
+                  }`}
+                />
+              </div>
+              <div
+                className="answer-box"
+                style={{
+                  maxHeight: activeIndex === index ? "180px" : "0px",
+                  opacity: activeIndex === index ? "1" : "0",
+                  padding: activeIndex === index ? "15px 3vw" : "0px 3vw",
+                  transition: "all 0.3s ease-in-out",
+                  overflow: "hidden",
+                }}
+              >
+                {faq.answer}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+
       <div id="footer">
         <div id="footer-left">
           <div id="l-top">

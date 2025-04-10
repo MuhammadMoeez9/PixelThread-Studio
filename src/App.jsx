@@ -16,7 +16,7 @@ import UserDetail from "./Pages/UserDetail";
 import UploadForm from "./Pages/uploadform";
 import RotatingText from "./Component/RotatingText";
 import "../src/Component/RotatingText.css";
-import Home from "./Pages/Home";
+import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import AboutAnimation from "./Pages/AboutAnimation";
 import HomeAnimation from "./Pages/HomeAnimation";
@@ -39,6 +39,7 @@ function App() {
           <Route path="/Pricing" element={<Pricing />} />
           <Route path="/Upload" element={<UploadForm />} />
           <Route path="/Animation" element={<AboutAnimation />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/" element={<HomeAnimation />} />
           <Route path="/portfolio" element={<HomeAnimation />} />
           <Route path="/user/:userId" element={<UserDetail />} />
