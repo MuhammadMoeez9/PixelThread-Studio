@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://pixel-thread-studio.vercel.app/sitemap.xml
