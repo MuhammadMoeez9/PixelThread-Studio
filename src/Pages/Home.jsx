@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"; // Firebase Auth
-import { getDoc, doc } from "firebase/firestore";
+import { getDoc, doc, addDoc, collection } from "firebase/firestore";
 import { db } from "../Component/Firebase"; // Ensure correct import paths
 import "./Home.css";
 import "../App.css";
@@ -73,6 +73,32 @@ const Home = () => {
   const videoRef = useRef(null);
   const videoUrl = "/assets/BrotherStellaireembroiderymachine.MP4";
 
+  const [formData, setFormData] = useState({
+    user_name: "",
+    user_email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await addDoc(collection(db, "Emails"), formData);
+      alert("Email data saved successfully!");
+      setFormData({ user_name: "", user_email: "", message: "" });
+    } catch (error) {
+      console.error("Error saving email:", error);
+      alert("Failed to save. Try again.");
+    }
+  };
+
   useEffect(() => {
     const menuIcon = document.querySelector(".ri-menu-fill");
     const closeIcon = document.querySelector("#close-i");
@@ -92,6 +118,37 @@ const Home = () => {
     }
   }, []);
 
+  // ✅ Firebase Authentication Check
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      setUser(currentUser);
+      setLoading(false); // Ensure loading stops
+
+      if (currentUser) {
+        try {
+          const userDoc = await getDoc(doc(db, "users", currentUser.uid));
+          if (userDoc.exists()) {
+            setRole(userDoc.data().role);
+          }
+        } catch (error) {
+          console.error("Error fetching user role:", error);
+        }
+      }
+    });
+
+    return () => unsubscribe();
+  }, [auth]);
+
+  // ✅ Logout function
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+      navigate("/"); // ❌ This is forcing navigation, remove it!
+    } catch (error) {
+      console.error("Logout Error:", error);
+    }
+  };
   // FAQ
 
   const [activeIndex, setActiveIndex] = useState(null);
@@ -149,38 +206,6 @@ const Home = () => {
   };
   // FAQ ending
 
-  // ✅ Firebase Authentication Check
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      setUser(currentUser);
-      setLoading(false); // Ensure loading stops
-
-      if (currentUser) {
-        try {
-          const userDoc = await getDoc(doc(db, "users", currentUser.uid));
-          if (userDoc.exists()) {
-            setRole(userDoc.data().role);
-          }
-        } catch (error) {
-          console.error("Error fetching user role:", error);
-        }
-      }
-    });
-
-    return () => unsubscribe();
-  }, [auth]);
-
-  // ✅ Logout function
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      setUser(null);
-      navigate("/"); // ❌ This is forcing navigation, remove it!
-    } catch (error) {
-      console.error("Logout Error:", error);
-    }
-  };
-
   return (
     <>
       <div id="main">
@@ -215,8 +240,9 @@ const Home = () => {
                 <button>Login</button>
               </Link>
             )}
-
-            <img src={reviewscardelem03} alt="User Icon" />
+            <Link to="/CompleteProfile">
+              <img src={reviewscardelem03} alt="User Icon" />
+            </Link>
 
             <button className="btn mobile-nav-btn">
               <i className="ri-menu-fill"></i>
@@ -342,11 +368,11 @@ const Home = () => {
         >
           <div id="page-2-content">
             <h2>All-inclusive</h2>
-            <p>
+            <span>
               Offering all-inclusive services for vector digitizing, custom
               graphics, and screen printing. We create high-quality, scalable
               designs for embroidery and printing with precision and ease.
-            </p>
+            </span>
             <h1>Precision and Creativity, All in One Place!</h1>
           </div>
           <div id="floating-div">
@@ -2024,10 +2050,22 @@ const Home = () => {
             <div className="box">
               <h2>Company</h2>
               <ul>
-                <li>Home</li>
-                <li>Our Services</li>
-                <li>About Us</li>
-                <li>Contact</li>
+                <Link to="/portfolio">
+                  <li>Home</li>
+                </Link>
+                <Link to="/pricing">
+                  <li>Pricing</li>
+                </Link>
+                <Link to="/Services">
+                  <li>Our Services</li>
+                </Link>
+                <Link to="/About">
+                  {" "}
+                  <li>About Us</li>
+                </Link>
+                <Link to="/Contact">
+                  <li>Contact</li>
+                </Link>
               </ul>
             </div>
             <div className="box">
@@ -2057,28 +2095,35 @@ const Home = () => {
           </div>
         </div>
         <div id="footer-right">
-          <div className="contact-container">
+          <form className="contact-container" onSubmit={handleSubmit}>
             <input
               type="text"
               name="user_name"
               placeholder="Your Name"
+              value={formData.user_name}
+              onChange={handleChange}
               required
             />
             <input
               type="email"
               name="user_email"
               placeholder="Your Email Address"
+              value={formData.user_email}
+              onChange={handleChange}
               required
             />
             <input
               className="message-box"
+              name="message"
               placeholder="Your Message..."
+              value={formData.message}
+              onChange={handleChange}
               required
             />
             <button type="submit" className="send-btn">
               Send Email
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </>

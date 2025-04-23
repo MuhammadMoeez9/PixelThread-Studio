@@ -22,6 +22,7 @@ import AboutAnimation from "./Pages/AboutAnimation";
 import HomeAnimation from "./Pages/HomeAnimation";
 import Pricing from "./Pages/Pricing";
 import Service from "./Pages/Service";
+import CompleteProfile from "./Pages/CompleteProfile";
 // import Loader from "./Component/Loader"
 
 function App() {
@@ -31,15 +32,16 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/Service" element={<ProjectsPage />} />
-          <Route path="/project/:id" element={<ProjectDetailPage />} />
+          {/* <Route path="/project" element={<ProjectsPage />} />
+          <Route path="/project/:id" element={<ProjectDetailPage />} /> */}
           <Route path="/admin" element={<Admin />} />
           <Route path="/About" element={<About />} />
           <Route path="/Services" element={<Service />} />
           <Route path="/Pricing" element={<Pricing />} />
-          <Route path="/Upload" element={<UploadForm />} />
+          {/* <Route path="/Upload" element={<UploadForm />} /> */}
           <Route path="/Animation" element={<AboutAnimation />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/CompleteProfile" element={<CompleteProfile />} />
           <Route path="/" element={<HomeAnimation />} />
           <Route path="/portfolio" element={<HomeAnimation />} />
           <Route path="/user/:userId" element={<UserDetail />} />

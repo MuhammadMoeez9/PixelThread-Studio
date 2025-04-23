@@ -430,6 +430,11 @@ nav button:hover {
   border-radius: 50px;
   font-weight: 400;
 }
+#page-2 > span {
+  font-size: 14px;
+  font-family: "Poppins";
+  margin: auto;
+}
 
 #page-2-content {
   padding-top: 5vh;
@@ -1378,8 +1383,13 @@ nav button:hover {
     flex-direction: column;
   }
   #floating-div img {
-    width: 45vw;
+    display: none;
   }
+
+  #page-2 > h1 {
+    padding-top: -90px;
+  }
+
   #float-1 {
     right: 4vw;
     top: 75%;
@@ -1450,7 +1460,6 @@ nav button:hover {
     padding: 0 0;
   }
 
-  
   .card {
     width: 300px;
     height: 380px;
@@ -1458,7 +1467,12 @@ nav button:hover {
   #page-2-content {
     width: 100%;
   }
-  #page-2 .floating-div {
+  #page-2 > span {
+    font-size: 14px;
+    color: #7600ff;
+    font-family: "Poppins";
+  }
+  #floating-div {
     display: none;
   }
   .l-btm {

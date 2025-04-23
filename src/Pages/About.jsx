@@ -471,10 +471,22 @@ const About = () => {
             <div className="box">
               <h2>Company</h2>
               <ul>
-                <li>Home</li>
-                <li>Our Services</li>
-                <li>About Us</li>
-                <li>Contact</li>
+                <Link to="/portfolio">
+                  <li>Home</li>
+                </Link>
+                <Link to="/pricing">
+                  <li>Pricing</li>
+                </Link>
+                <Link to="/Services">
+                  <li>Our Services</li>
+                </Link>
+                <Link to="/About">
+                  {" "}
+                  <li>About Us</li>
+                </Link>
+                <Link to="/Contact">
+                  <li>Contact</li>
+                </Link>
               </ul>
             </div>
             <div className="box">
