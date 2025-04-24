@@ -200,7 +200,6 @@ nav button:hover {
 #content-left > span {
   font-family: dancing script;
   font-size: 5rem;
-  color: #fbc638;
 }
 #hero-left h1 {
   font-size: 2rem;
@@ -210,9 +209,7 @@ nav button:hover {
   font-weight: 600;
   margin-bottom: 10px;
 }
-#hero-left h1 span {
-  color: #fbc638;
-}
+
 #hero-left p {
   font-size: 1rem;
   font-weight: 400;

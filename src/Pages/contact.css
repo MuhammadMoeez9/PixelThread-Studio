@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -178,10 +179,11 @@ nav button:hover {
   align-items: center;
   padding-top: 4vw;
 }
-#page-1-content h1 {
+#page-1-content > .hOne {
   color: #7600ff;
   font-size: 3rem;
   font-weight: 500;
+  font-family: "Poppins", "sans-serif";
 }
 #page-1-content p {
   font-size: 1.2rem;
@@ -257,16 +259,17 @@ nav button:hover {
   gap: 0 0.5vw;
   font-size: 1.4rem;
 }
-#footer-right {
+#hero-center {
   height: 100%;
-  width: 50%;
+  min-width: 600px;
+  /* width: 700px; */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
 }
 .contact-container {
-  width: 90%;
+  width: 300px;
   min-height: 300px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -302,8 +305,14 @@ nav button:hover {
 }
 
 @media (max-width: 1024px) {
+  #hero-center {
+    min-width: 700px;
+  }
 }
 @media (max-width: 768px) {
+  #hero-center {
+    min-width: 500px;
+  }
   nav #links {
     display: none; /* Hide navigation links in mobile view */
   }
@@ -315,6 +324,9 @@ nav button:hover {
 @media (max-width: 768px) {
   #footer {
     padding: 20px;
+  }
+  #hero-center {
+    min-width: 700px;
   }
 
   #footer-left,
@@ -345,5 +357,11 @@ nav button:hover {
 
   #social {
     font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  #hero-center {
+    min-width: 300px;
   }
 }

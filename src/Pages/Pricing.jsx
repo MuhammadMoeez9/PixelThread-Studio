@@ -163,33 +163,31 @@ const Pricing = () => {
           <div id="plans">
             <div className="pricing-card-2">
               <div className="card-top-2">
-                <h3>Full Back</h3>
-                <span>Embroidery Digitizing</span>
+                <h3>Vector Tracing</h3>
+                <span>Vector Graphics</span>
               </div>
               <div className="center-2">
-                <h1>$49.0</h1>
-                <button className="order-btn-2">Order Now</button>
+                <h1>$15.0</h1>
+                <Link to={"/Contact"}>
+                  <button className="order-btn-2">Order Now</button>
+                </Link>
               </div>
               <div className="features-2">
                 <p>
                   <i className="ri-check-double-line" />
-                  Full back or other
+                  Vector Art
                 </p>
                 <p>
                   <i className="ri-check-double-line" />
-                  Maximum $200
-                </p>
-                <p>
-                  <i className="ri-check-double-line" />
-                  Revision, Edits, Changes Free
-                </p>
-                <p>
-                  <i className="ri-check-double-line" />
-                  Contact us for special discount
+                  Completely depends upon the complexity of design
                 </p>
                 <p>
                   <i className="ri-check-double-line" />
                   24 Hrs Support
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />
+                  Contact us for special discount
                 </p>
               </div>
             </div>
@@ -199,8 +197,10 @@ const Pricing = () => {
                 <span>Embroidery Digitizing</span>
               </div>
               <div className="center">
-                <h1>$49.0</h1>
-                <button className="order-btn">Order Now</button>
+                <h1>$20.0</h1>
+                <Link to={"/Contact"}>
+                  <button className="order-btn-2">Order Now</button>
+                </Link>
               </div>
               <div className="features">
                 <p>
@@ -228,29 +228,30 @@ const Pricing = () => {
 
             <div className="pricing-card-2">
               <div className="card-top-2">
-                <h3>Full Back</h3>
+                <h3>Left Chest</h3>
                 <span>Embroidery Digitizing</span>
               </div>
               <div className="center-2">
-                <h1>$49.0</h1>
-                <button className="order-btn-2">Order Now</button>
+                <h1>$10.0</h1>
+                <Link to={"/Contact"}>
+                  <button className="order-btn-2">Order Now</button>
+                </Link>
               </div>
               <div className="features-2">
                 <p>
                   <i className="ri-check-double-line" />
-                  Full back or other
+                  Left Chest/CAP
+                </p>
+                <p>
+                  <i className="ri-check-double-line" />1 Digitized logo
                 </p>
                 <p>
                   <i className="ri-check-double-line" />
-                  Maximum $200
+                  Flat Fee Minimum $10
                 </p>
                 <p>
                   <i className="ri-check-double-line" />
-                  Revision, Edits, Changes Free
-                </p>
-                <p>
-                  <i className="ri-check-double-line" />
-                  Contact us for special discount
+                  Revision/Edits/Color Changes Free
                 </p>
                 <p>
                   <i className="ri-check-double-line" />

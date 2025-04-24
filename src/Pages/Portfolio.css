@@ -219,9 +219,7 @@ nav button:hover {
   position: relative;
 }
 #content-left > span {
-  font-family: dancing script;
   font-size: 5rem;
-  color: #fbc638;
 }
 #hero-left h1 {
   font-size: 2rem;
@@ -509,7 +507,7 @@ nav button:hover {
   gap: 8vw;
 }
 
-#page-4 {
+#page-four {
   padding-top: 4vw;
   width: 100vw;
   height: auto;
@@ -520,7 +518,7 @@ nav button:hover {
   align-items: center;
   /* border-bottom: 1px solid rgb(190, 190, 190); */
 }
-#page-4-content {
+#page-four-content {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -531,7 +529,7 @@ nav button:hover {
   padding-bottom: 1.5vw;
 }
 
-#page-4 p {
+#page-four p {
   font-size: 1rem;
 }
 /* #pr-cards {
@@ -572,8 +570,8 @@ nav button:hover {
   scale: 1.6;
 } */
 
-#image-container {
-  align-items: center;
+#img-container {
+  /* align-items: center; */
   /* width: 350px; */
   height: auto;
   display: flex;
@@ -594,14 +592,15 @@ nav button:hover {
   width: 300px;
   background-color: black;
   position: relative;
-  justify-content: end;
   color: white;
   border-radius: 10px;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
 }
 
 .col img {
-  width: 250px;
+  width: 100%;
   height: 100%;
   position: absolute;
   object-fit: cover;
@@ -616,6 +615,9 @@ nav button:hover {
   opacity: 0;
   transform: translateY(25px);
   transition: all 0.5s ease;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 .text p {
   padding-left: 1vw;
@@ -632,25 +634,6 @@ nav button:hover {
 .col:hover .text {
   transform: translateY(0px);
   opacity: 1;
-}
-.row {
-  display: flex;
-  flex-direction: column;
-  flex: 2 1 250px;
-  height: 300px;
-  width: 250px; /* fixed width */
-  flex-wrap: wrap;
-  border-radius: 10px;
-  width: 100%;
-  min-height: 300px;
-  display: flex;
-  gap: 1vw;
-}
-.row .wide {
-  flex-grow: 4;
-}
-.row .short {
-  flex-grow: 1;
 }
 
 #project-counter {
@@ -1356,7 +1339,7 @@ nav button:hover {
   #page-5-cards {
     row-gap: 10vw;
   }
-  #page-4-content {
+  #page-four-content {
     width: 90%;
   }
   #page-8-left {

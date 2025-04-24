@@ -16,10 +16,6 @@ body {
   overflow-x: hidden;
 }
 
-body::-webkit-scrollbar {
-  /* display: none; */
-}
-
 #upper-nav {
   background-color: #7600ff;
   height: 4vh;
@@ -155,9 +151,7 @@ nav button:hover {
   font-weight: 600;
   margin-bottom: 10px;
 }
-#hero-left h1 span {
-  color: #fbc638;
-}
+
 #hero-left p {
   font-size: 1rem;
   font-weight: 400;

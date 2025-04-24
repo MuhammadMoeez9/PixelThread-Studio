@@ -185,8 +185,8 @@ const Portfolio = () => {
           </div>
         </div>
       </nav>
-      <div className="page-4" id="page-4">
-        <div className="image-container" id="image-container">
+      <div className="page-four" id="page-four">
+        <div className="img-container" id="img-container">
           {projects.map((project) => (
             <div key={project.id} className="">
               <div className="col">

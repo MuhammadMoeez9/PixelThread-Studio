@@ -159,13 +159,13 @@ const Contact = () => {
 
       <div id="page-1">
         <div id="page-1-content">
-          <h1>Let's Connect</h1>
+          <h1 className="hOne">Let's Connect</h1>
           <p>
             Have any questions or need our services? Fill out the form below,
             and our team will respond to you quickly!
           </p>
         </div>
-        <div id="footer-right">
+        <div id="hero-center">
           <form className="contact-container" onSubmit={handleSubmit}>
             <input
               type="text"
