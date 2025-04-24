@@ -414,18 +414,19 @@ nav button:hover {
   background-size: cover;
   background-position: center;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   border-bottom: 1px solid rgb(209, 209, 209);
 }
-#page-2 h1 {
-  color: #7600ff;
+/* #page-2 h1 {
+  color: #555;
   text-align: center;
   width: 100%;
-}
+} */
 #page-2 h2 {
   color: white;
   background-color: #7600ff;
-  padding: 1vh 3vw;
+  /* padding: 1vh 3vw; */
+  /* background-color: #555; */
   font-size: 1rem;
   border-radius: 50px;
   font-weight: 400;
@@ -442,8 +443,8 @@ nav button:hover {
   min-width: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  /* align-items: center; */
+  /* text-align: center; */
   gap: 1vw;
 }
 

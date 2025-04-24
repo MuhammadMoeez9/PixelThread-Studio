@@ -405,65 +405,6 @@ nav button:hover {
   animation: move 15s linear infinite;
   animation-fill-mode: forwards; /* Infinite animation for moving flags */
 }
-
-#page-2 {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  background-image: url(./Assets/elem-05.png);
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid rgb(209, 209, 209);
-}
-#page-2 h1 {
-  color: #7600ff;
-  text-align: center;
-  width: 100%;
-}
-#page-2 h2 {
-  color: white;
-  background-color: #7600ff;
-  padding: 1vh 3vw;
-  font-size: 1rem;
-  border-radius: 50px;
-  font-weight: 400;
-}
-#page-2 > span {
-  font-size: 14px;
-  font-family: "Poppins";
-  margin: auto;
-}
-
-#page-2-content {
-  padding-top: 5vh;
-  max-width: 40%;
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1vw;
-}
-
-#floating-div img {
-  width: 25vw;
-}
-#float-1 {
-  position: absolute;
-  right: 2vw;
-  top: 20vh;
-  animation: floatAnimation 3s ease-in-out infinite;
-}
-
-#float-2 {
-  position: absolute;
-  left: 2vw;
-  top: 20vh;
-  animation: floatAnimation 3s ease-in-out infinite;
-}
-
 #page-3 {
   width: 100vw;
   min-height: 100vh;
