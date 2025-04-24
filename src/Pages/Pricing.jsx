@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"; // Firebase Auth
-import { getDoc, doc } from "firebase/firestore";
+import {
+  getDoc,
+  doc,
+  addDoc,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
 import { db } from "../Component/Firebase"; // Ensure correct import paths
 import "remixicon/fonts/remixicon.css";
 import "./Pricing.css"; // Ensure you have corresponding CSS
@@ -14,6 +20,35 @@ const Pricing = () => {
   const [role, setRole] = useState("");
   const [loading, setLoading] = useState(true);
   const auth = getAuth();
+
+  const [formData, setFormData] = useState({
+    user_name: "",
+    user_email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await addDoc(collection(db, "Emails"), {
+        ...formData,
+        createdAt: serverTimestamp(),
+      });
+      alert("Email data saved successfully!");
+      setFormData({ user_name: "", user_email: "", message: "" });
+    } catch (error) {
+      console.error("Error saving email:", error);
+      alert("Failed to save. Try again.");
+    }
+  };
 
   useEffect(() => {
     const menuIcon = document.querySelector(".ri-menu-fill");
@@ -159,7 +194,7 @@ const Pricing = () => {
               </div>
             </div>
             <div className="pricing-card">
-              <div className="card-top">
+              <div className="card-top-2">
                 <h3>Full Back</h3>
                 <span>Embroidery Digitizing</span>
               </div>
@@ -190,6 +225,7 @@ const Pricing = () => {
                 </p>
               </div>
             </div>
+
             <div className="pricing-card-2">
               <div className="card-top-2">
                 <h3>Full Back</h3>
@@ -284,15 +320,35 @@ const Pricing = () => {
             </div>
           </div>
           <div id="footer-right">
-            <div className="contact-container">
-              <input type="text" placeholder="Name" />
-              <input type="email" placeholder="Email Address" />
+            <form className="contact-container" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="user_name"
+                placeholder="Your Name"
+                value={formData.user_name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="email"
+                name="user_email"
+                placeholder="Your Email Address"
+                value={formData.user_email}
+                onChange={handleChange}
+                required
+              />
               <input
                 className="message-box"
-                placeholder="Write something here..."
+                name="message"
+                placeholder="Your Message..."
+                value={formData.message}
+                onChange={handleChange}
+                required
               />
-              <button className="send-btn">Send Email</button>
-            </div>
+              <button type="submit" className="send-btn">
+                Send Email
+              </button>
+            </form>
           </div>
         </div>
       </div>

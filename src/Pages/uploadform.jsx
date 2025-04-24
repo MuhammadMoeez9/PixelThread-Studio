@@ -14,15 +14,11 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const UploadForm = () => {
-  useEffect(() => {
-    document.title = "Upload Form";
-  }, []);
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState(null);
-  const [loading, setLoading] = useState(false); // For showing loading state
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -31,7 +27,7 @@ const UploadForm = () => {
 
     const formData = new FormData();
     formData.append("file", image);
-    formData.append("upload_preset", "firebase"); // Set your Cloudinary upload preset
+    formData.append("upload_preset", "firebase");
 
     try {
       const response = await fetch(
@@ -43,7 +39,7 @@ const UploadForm = () => {
       );
 
       const data = await response.json();
-      return data.secure_url; // Return uploaded image URL
+      return data.secure_url;
     } catch (error) {
       console.error("Image Upload Error:", error);
       toast.error("Image upload failed. Try again.", {
@@ -69,15 +65,15 @@ const UploadForm = () => {
         title,
         description,
         category,
-        imageUrl, // Store image URL in Firestore
+        imageUrl,
         uploadedAt: Timestamp.now(),
       });
 
-      toast.success("Upload successful!", {
+      toast.success("Project Uploaded Successfully", {
         position: "top-center",
         autoClose: 3000,
       });
-      setTimeout(() => navigate("/home"), 3000);
+      setTimeout(() => navigate("/portfolio"), 3000);
     } catch (error) {
       console.error("Upload Error:", error);
       toast.error("Error uploading. Please try again.", {

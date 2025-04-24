@@ -23,6 +23,9 @@ import HomeAnimation from "./Pages/HomeAnimation";
 import Pricing from "./Pages/Pricing";
 import Service from "./Pages/Service";
 import CompleteProfile from "./Pages/CompleteProfile";
+import Portfolio from "./Pages/Portfolio";
+import EmailsTable from "./Pages/EmailsTable";
+import EmailDetail from "./Pages/EmailDetail";
 // import Loader from "./Component/Loader"
 
 function App() {
@@ -38,13 +41,18 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Services" element={<Service />} />
           <Route path="/Pricing" element={<Pricing />} />
-          {/* <Route path="/Upload" element={<UploadForm />} /> */}
+          <Route path="/Upload" element={<UploadForm />} />
           <Route path="/Animation" element={<AboutAnimation />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/CompleteProfile" element={<CompleteProfile />} />
           <Route path="/" element={<HomeAnimation />} />
-          <Route path="/portfolio" element={<HomeAnimation />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/user/:userId" element={<UserDetail />} />
+          <Route path="/EmailsTable092930jkmsdkj" element={<EmailsTable />} />
+          <Route
+            path="/EmailsTable092930jkmsdkj/:id"
+            element={<EmailDetail />}
+          />
         </Routes>
       </AuthProvider>
     </Router>

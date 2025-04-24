@@ -5,7 +5,13 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  addDoc,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
 import { db } from "../Component/Firebase"; // Adjust this import path to your Firebase config
 import Logo from "../assets/300x100-01.png";
 import BrotherStellaireembroiderymachineThumbnail from "../assets/BrotherStellaireembroiderymachineThumbnail.png";
@@ -26,6 +32,35 @@ const About = () => {
   const [isOpen, setIsOpen] = useState(false);
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(true); // ✅ Define setLoading
+
+  const [formData, setFormData] = useState({
+    user_name: "",
+    user_email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await addDoc(collection(db, "Emails"), {
+        ...formData,
+        createdAt: serverTimestamp(),
+      });
+      alert("Email data saved successfully!");
+      setFormData({ user_name: "", user_email: "", message: "" });
+    } catch (error) {
+      console.error("Error saving email:", error);
+      alert("Failed to save. Try again.");
+    }
+  };
 
   useEffect(() => {
     const menuIcon = document.querySelector(".ri-menu-fill");
@@ -516,15 +551,35 @@ const About = () => {
           </div>
         </div>
         <div id="footer-right">
-          <div className="contact-container">
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email Address" />
+          <form className="contact-container" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Your Name"
+              value={formData.user_name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="email"
+              name="user_email"
+              placeholder="Your Email Address"
+              value={formData.user_email}
+              onChange={handleChange}
+              required
+            />
             <input
               className="message-box"
-              placeholder="Write something here..."
+              name="message"
+              placeholder="Your Message..."
+              value={formData.message}
+              onChange={handleChange}
+              required
             />
-            <button className="send-btn">Send Email</button>
-          </div>
+            <button type="submit" className="send-btn">
+              Send Email
+            </button>
+          </form>
         </div>
       </div>
     </>

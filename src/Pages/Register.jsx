@@ -10,7 +10,11 @@ import {
   Typography,
   Paper,
   CircularProgress,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+
 import moment from "moment-timezone";
 
 const Register = () => {
@@ -21,6 +25,7 @@ const Register = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(""); // Error state
   const navigate = useNavigate();
@@ -106,22 +111,33 @@ const Register = () => {
           />
           <TextField
             label="Password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             fullWidth
             margin="normal"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
 
           {/* 🔹 Register Button */}
           <Button
             type="submit"
             variant="contained"
-            color="primary"
             fullWidth
-            style={{ marginTop: "1rem" }}
             disabled={loading}
+            sx={{
+              marginTop: "1rem",
+              backgroundColor: "#7600ff",
+            }}
           >
             {loading ? <CircularProgress size={24} /> : "Register"}
           </Button>

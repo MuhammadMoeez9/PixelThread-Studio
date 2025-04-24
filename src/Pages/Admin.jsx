@@ -4,6 +4,8 @@ import { db } from "../Component/Firebase";
 import {
   collection,
   getDocs,
+  getDoc,
+  doc,
   query,
   orderBy,
   limit,
@@ -182,11 +184,15 @@ const Admin = () => {
             <p>Loading...</p>
           ) : user ? (
             <>
-              {role === "admin" && (
+              {/* {role === "admin" && (
                 <div className="admin-btn-container">
                   <button onClick={() => navigate("/Admin")}>Admin</button>
                 </div>
-              )}
+              )
+              } */}
+              <button onClick={() => navigate("/EmailsTable092930jkmsdkj")}>
+                Emails
+              </button>
               <button onClick={handleLogout}>Logout</button>
             </>
           ) : (

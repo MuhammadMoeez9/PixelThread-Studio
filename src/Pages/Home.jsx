@@ -1,7 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"; // Firebase Auth
-import { getDoc, doc, addDoc, collection } from "firebase/firestore";
+import {
+  getDoc,
+  doc,
+  addDoc,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
 import { db } from "../Component/Firebase"; // Ensure correct import paths
 import "./Home.css";
 import "../App.css";
@@ -90,7 +96,10 @@ const Home = () => {
     e.preventDefault();
 
     try {
-      await addDoc(collection(db, "Emails"), formData);
+      await addDoc(collection(db, "Emails"), {
+        ...formData,
+        createdAt: serverTimestamp(),
+      });
       alert("Email data saved successfully!");
       setFormData({ user_name: "", user_email: "", message: "" });
     } catch (error) {
@@ -699,7 +708,7 @@ const Home = () => {
                 <q>Our Story</q>
               </h4>
               <div id="offers">
-                <p>
+                <p style={{ color: "#fff" }}>
                   PixelThread Studio is a professional embroidery digitizing and
                   vector art service dedicated to delivering precision,
                   creativity, and efficiency. We specialize in crafting high

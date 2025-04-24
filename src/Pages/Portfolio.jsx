@@ -1,26 +1,30 @@
-import { useState, useEffect } from "react";
-import "./contact.css";
-import { Link, useNavigate } from "react-router-dom";
+import { React, useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"; // Firebase Auth
 import {
+  getDocs,
   getDoc,
   doc,
   addDoc,
-  serverTimestamp,
   collection,
+  serverTimestamp,
+  query,
+  orderBy,
 } from "firebase/firestore";
 import { db } from "../Component/Firebase"; // Ensure correct import paths
 import logo from "../assets/300x100-01.png";
 import reviewscardelem03 from "../assets/reviewscardelem03.png";
+import "./Portfolio.css";
 import footerimage01 from "../assets/footerimage01.png";
 
-const Contact = () => {
+const Portfolio = () => {
   const [user, setUser] = useState(null);
   const [role, setRole] = useState("");
   const [loading, setLoading] = useState(true);
   const auth = getAuth();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [projects, setProjects] = useState([]);
 
   const [formData, setFormData] = useState({
     user_name: "",
@@ -70,6 +74,7 @@ const Contact = () => {
     }
   }, []);
 
+  // ✅ Firebase Authentication Check
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
@@ -99,10 +104,33 @@ const Contact = () => {
     } catch (error) {
       console.error("Logout Error:", error);
     }
+    // Projects
+    // At top-level inside component, not inside any function
+
+    // Projects
+  };
+  const fetchProjects = async () => {
+    try {
+      const q = query(
+        collection(db, "Projects"),
+        orderBy("uploadedAt", "desc")
+      );
+      const querySnapshot = await getDocs(q);
+      const projectsData = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setProjects(projectsData);
+    } catch (error) {
+      console.error("Error fetching projects: ", error);
+    }
   };
 
+  useEffect(() => {
+    fetchProjects();
+  }, []);
   return (
-    <div id="main">
+    <>
       <div id="upper-nav">
         <h2>Get 40% Off on your first order!</h2>
       </div>
@@ -134,8 +162,9 @@ const Contact = () => {
               <button>Login</button>
             </Link>
           )}
-
-          <img src={reviewscardelem03} alt="User Icon" />
+          <Link to="/CompleteProfile">
+            <img src={reviewscardelem03} alt="User Icon" />
+          </Link>
 
           <button className="btn mobile-nav-btn">
             <i className="ri-menu-fill"></i>
@@ -156,48 +185,26 @@ const Contact = () => {
           </div>
         </div>
       </nav>
-
-      <div id="page-1">
-        <div id="page-1-content">
-          <h1>Let's Connect</h1>
-          <p>
-            Have any questions or need our services? Fill out the form below,
-            and our team will respond to you quickly!
-          </p>
-        </div>
-        <div id="footer-right">
-          <form className="contact-container" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="user_name"
-              placeholder="Your Name"
-              value={formData.user_name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="email"
-              name="user_email"
-              placeholder="Your Email Address"
-              value={formData.user_email}
-              onChange={handleChange}
-              required
-            />
-            <input
-              className="message-box"
-              name="message"
-              placeholder="Your Message..."
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-            <button type="submit" className="send-btn">
-              Send Email
-            </button>
-          </form>
+      <div className="page-4" id="page-4">
+        <div className="image-container" id="image-container">
+          {projects.map((project) => (
+            <div key={project.id} className="">
+              <div className="col">
+                <div className="text">
+                  <h1>{project.title}</h1>
+                  <h2>{project.category}</h2>
+                  <p>
+                    {project.uploadedAt?.toDate
+                      ? project.uploadedAt.toDate().toLocaleDateString()
+                      : "No date provided"}
+                  </p>
+                </div>
+                <img src={project.imageUrl} alt={project.title} />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-
       <div id="footer">
         <div id="footer-left">
           <div id="l-top">
@@ -289,8 +296,8 @@ const Contact = () => {
           </form>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default Contact;
+export default Portfolio;
