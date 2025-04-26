@@ -1,10 +1,11 @@
 {
-    "cleanUrls": true,
-    "trailingSlash": false,
-    "rewrites": [
+    "redirects": [
         {
-            "source": "/(.*)",
-            "destination": "/index.html"
+            "source": "https://pixel-thread-studio.vercel.app/:path*",
+            "destination": "https://pixelthreadstudio.com/:path*",
+            "permanent": true
         }
-    ]
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
 }
