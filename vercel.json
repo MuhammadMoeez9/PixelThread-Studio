@@ -1,11 +1,4 @@
 {
-    "redirects": [
-        {
-            "source": "https://pixel-thread-studio.vercel.app/:path*",
-            "destination": "https://pixelthreadstudio.com/:path*",
-            "permanent": true
-        }
-    ],
     "cleanUrls": true,
     "trailingSlash": false
 }
