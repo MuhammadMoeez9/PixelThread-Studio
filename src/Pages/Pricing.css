@@ -251,7 +251,12 @@ nav button:hover {
   transition: 0.3s;
 }
 .order-btn:hover {
-  background: #eee;
+  color: #7002ee;
+  background-color: white;
+  padding: 10px 40px;
+  border: 1px solid white;
+  border-radius: 30px;
+  transition: 0.3s;
 }
 .features {
   text-align: left;
@@ -307,8 +312,8 @@ nav button:hover {
   flex-direction: column;
 }
 .order-btn-2 {
-  background: #7600ff;
-  color: white;
+  background: white;
+  color: #7600ff;
   font-size: 22px;
   font-weight: bold;
   padding: 10px 40px;
@@ -318,7 +323,12 @@ nav button:hover {
   transition: 0.3s;
 }
 .order-btn-2:hover {
-  background: #7002ee;
+  background-color: #7002ee;
+  color: white;
+  padding: 10px 40px;
+  border: 1px solid white;
+  border-radius: 30px;
+  transition: 0.3s;
 }
 .features-2 {
   text-align: left;

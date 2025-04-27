@@ -25,7 +25,6 @@ const Portfolio = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [projects, setProjects] = useState([]);
-
   const [formData, setFormData] = useState({
     user_name: "",
     user_email: "",
@@ -41,6 +40,12 @@ const Portfolio = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if the user is logged in
+    if (!user) {
+      alert("Please log in first to submit your data!");
+      return;
+    }
 
     try {
       await addDoc(collection(db, "Emails"), {

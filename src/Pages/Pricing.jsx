@@ -37,6 +37,12 @@ const Pricing = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if the user is logged in
+    if (!user) {
+      alert("Please log in first to submit your data!");
+      return;
+    }
+
     try {
       await addDoc(collection(db, "Emails"), {
         ...formData,

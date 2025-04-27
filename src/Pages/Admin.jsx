@@ -190,6 +190,9 @@ const Admin = () => {
                 </div>
               )
               } */}
+              <Link to="/upload">
+                <button>Upload</button>
+              </Link>
               <button onClick={() => navigate("/EmailsTable092930jkmsdkj")}>
                 Emails
               </button>

@@ -22,9 +22,10 @@ const Contact = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
+  
   const [formData, setFormData] = useState({
     user_name: "",
-    user_email: "",
+    user_email: "", // Email entered by the user
     message: "",
   });
 
@@ -38,11 +39,23 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if the user is logged in
+    if (!user) {
+      alert("Please log in first to submit your data!");
+      return;
+    }
+
+    // Add the logged-in user's email to the form data
+    const formDataWithUserEmail = {
+      ...formData,
+      user_email: user.email, // Logged-in user's email (title)
+      original_email: formData.user_email, // The email entered by the user
+      createdAt: serverTimestamp(),
+    };
+
     try {
-      await addDoc(collection(db, "Emails"), {
-        ...formData,
-        createdAt: serverTimestamp(),
-      });
+      // Save the data to Firestore
+      await addDoc(collection(db, "Emails"), formDataWithUserEmail);
       alert("Email data saved successfully!");
       setFormData({ user_name: "", user_email: "", message: "" });
     } catch (error) {

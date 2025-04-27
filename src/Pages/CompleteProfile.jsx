@@ -134,7 +134,6 @@ const CompleteProfile = () => {
           fullName,
           phone,
           dob,
-          role,
           updatedAt: firestoreTimestamp,
         },
         { merge: true }

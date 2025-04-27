@@ -78,7 +78,7 @@ const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const videoRef = useRef(null);
   const videoUrl = "/assets/BrotherStellaireembroiderymachine.MP4";
-
+  // Email Storing
   const [formData, setFormData] = useState({
     user_name: "",
     user_email: "",
@@ -95,6 +95,12 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if the user is logged in
+    if (!user) {
+      alert("Please log in first to submit your data!");
+      return;
+    }
+
     try {
       await addDoc(collection(db, "Emails"), {
         ...formData,
@@ -107,6 +113,7 @@ const Home = () => {
       alert("Failed to save. Try again.");
     }
   };
+  // Email Storing
 
   useEffect(() => {
     const menuIcon = document.querySelector(".ri-menu-fill");
@@ -164,23 +171,21 @@ const Home = () => {
 
   const faqs = [
     {
-      question: "Can I avail the free trial for check quality and time?",
-      answer: "Yes, you can avail a free trial to check the quality and time.",
+      question:
+        "Can I get a free trial to check the service quality and speed?",
+      answer: "Yes, we offer a free trial so you can check quality and speed.",
     },
     {
-      question: "How can I place the order?",
-      answer:
-        "You can place the order by visiting our website and filling out the order form.",
+      question: "How do I place an order and complete a full order process?",
+      answer: "You can place an order by filling out our simple order form.",
     },
     {
-      question: "How do I request a Quote/Estimate?",
-      answer:
-        "You can request a quote by submitting your requirements through our contact form.",
+      question: "How can I request a custom quote or price estimate easily?",
+      answer: "You can easily request a quote by using our contact form.",
     },
     {
-      question: "How much do you charge for digitizing?",
-      answer:
-        "Our charges for digitizing depend on the complexity and size of the design.",
+      question: "What's are the charges for digitizing based on design type?",
+      answer: "Charges vary depending on the size and complexity involved.",
     },
   ];
 
@@ -249,9 +254,11 @@ const Home = () => {
                 <button>Login</button>
               </Link>
             )}
-            <Link to="/CompleteProfile">
-              <img src={reviewscardelem03} alt="User Icon" />
-            </Link>
+            {user && (
+              <Link to="/CompleteProfile">
+                <img src={reviewscardelem03} alt="User Icon" />
+              </Link>
+            )}
 
             <button className="btn mobile-nav-btn">
               <i className="ri-menu-fill"></i>
@@ -1058,7 +1065,7 @@ const Home = () => {
                 everything on time. I am beyond satisfied with my experience!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourBoy} alt="" />
                 <div className="client-info">
                   <h5>James T.</h5>
                   <p>Highly Recommend!</p>
@@ -1093,7 +1100,7 @@ const Home = () => {
                 expectations. The attention to detail was incredible!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Ava C.</h5>
                   <p>Worth Every Penny!</p>
@@ -1110,7 +1117,7 @@ const Home = () => {
                 top-tier, and I will definitely be using this again!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceThreeBoy} alt="" />
                 <div className="client-info">
                   <h5>Michael B.</h5>
                   <p>Best Decision Ever!</p>
@@ -1199,7 +1206,7 @@ const Home = () => {
                 everything on time. I am beyond satisfied with my experience!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourBoy} alt="" />
                 <div className="client-info">
                   <h5>James T.</h5>
                   <p>Highly Recommend!</p>
@@ -1234,7 +1241,7 @@ const Home = () => {
                 expectations. The attention to detail was incredible!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Ava C.</h5>
                   <p>Worth Every Penny!</p>
@@ -1251,7 +1258,7 @@ const Home = () => {
                 top-tier, and I will definitely be using this again!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceThreeBoy} alt="" />
                 <div className="client-info">
                   <h5>Michael B.</h5>
                   <p>Best Decision Ever!</p>
@@ -1340,7 +1347,7 @@ const Home = () => {
                 everything on time. I am beyond satisfied with my experience!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoBoy} alt="" />
                 <div className="client-info">
                   <h5>James T.</h5>
                   <p>Highly Recommend!</p>
@@ -1375,7 +1382,7 @@ const Home = () => {
                 expectations. The attention to detail was incredible!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Ava C.</h5>
                   <p>Worth Every Penny!</p>
@@ -1392,7 +1399,7 @@ const Home = () => {
                 top-tier, and I will definitely be using this again!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceThreeBoy} alt="" />
                 <div className="client-info">
                   <h5>Michael B.</h5>
                   <p>Best Decision Ever!</p>
@@ -1483,7 +1490,7 @@ const Home = () => {
                 everything on time. I am beyond satisfied with my experience!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoBoy} alt="" />
                 <div className="client-info">
                   <h5>James T.</h5>
                   <p>Highly Recommend!</p>
@@ -1518,7 +1525,7 @@ const Home = () => {
                 expectations. The attention to detail was incredible!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Ava C.</h5>
                   <p>Worth Every Penny!</p>
@@ -1535,7 +1542,7 @@ const Home = () => {
                 top-tier, and I will definitely be using this again!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceThreeBoy} alt="" />
                 <div className="client-info">
                   <h5>Michael B.</h5>
                   <p>Best Decision Ever!</p>
@@ -1624,7 +1631,7 @@ const Home = () => {
                 everything on time. I am beyond satisfied with my experience!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoBoy} alt="" />
                 <div className="client-info">
                   <h5>James T.</h5>
                   <p>Highly Recommend!</p>
@@ -1659,7 +1666,7 @@ const Home = () => {
                 expectations. The attention to detail was incredible!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Ava C.</h5>
                   <p>Worth Every Penny!</p>
@@ -1676,7 +1683,7 @@ const Home = () => {
                 top-tier, and I will definitely be using this again!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceThreeBoy} alt="" />
                 <div className="client-info">
                   <h5>Michael B.</h5>
                   <p>Best Decision Ever!</p>
@@ -1765,7 +1772,7 @@ const Home = () => {
                 everything on time. I am beyond satisfied with my experience!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoBoy} alt="" />
                 <div className="client-info">
                   <h5>James T.</h5>
                   <p>Highly Recommend!</p>
@@ -1800,7 +1807,7 @@ const Home = () => {
                 expectations. The attention to detail was incredible!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Ava C.</h5>
                   <p>Worth Every Penny!</p>
@@ -1817,7 +1824,7 @@ const Home = () => {
                 top-tier, and I will definitely be using this again!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceThreeBoy} alt="" />
                 <div className="client-info">
                   <h5>Michael B.</h5>
                   <p>Best Decision Ever!</p>
@@ -1906,7 +1913,7 @@ const Home = () => {
                 everything on time. I am beyond satisfied with my experience!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceTwoBoy} alt="" />
                 <div className="client-info">
                   <h5>James T.</h5>
                   <p>Highly Recommend!</p>
@@ -1941,7 +1948,7 @@ const Home = () => {
                 expectations. The attention to detail was incredible!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceFourGirl} alt="" />
                 <div className="client-info">
                   <h5>Ava C.</h5>
                   <p>Worth Every Penny!</p>
@@ -1958,7 +1965,7 @@ const Home = () => {
                 top-tier, and I will definitely be using this again!
               </p>
               <div className="client-profile">
-                <img src="./Assets/reviews card elem-03.png" alt="" />
+                <img src={FaceThreeBoy} alt="" />
                 <div className="client-info">
                   <h5>Michael B.</h5>
                   <p>Best Decision Ever!</p>

@@ -42,7 +42,6 @@ const Service = () => {
   const [isOpen, setIsOpen] = useState(false);
   const videoRef = useRef(null);
   const videoUrl = "/assets/BrotherStellaireembroiderymachine.MP4";
-
   const [formData, setFormData] = useState({
     user_name: "",
     user_email: "",
@@ -59,6 +58,12 @@ const Service = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if the user is logged in
+    if (!user) {
+      alert("Please log in first to submit your data!");
+      return;
+    }
+
     try {
       await addDoc(collection(db, "Emails"), {
         ...formData,
@@ -71,7 +76,6 @@ const Service = () => {
       alert("Failed to save. Try again.");
     }
   };
-
   useEffect(() => {
     const menuIcon = document.querySelector(".ri-menu-fill");
     const closeIcon = document.querySelector("#close-i");
