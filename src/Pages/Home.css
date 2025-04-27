@@ -1253,6 +1253,13 @@ nav button:hover {
   gap: 0 0.5vw;
   font-size: 1.4rem;
 }
+#social > a {
+  text-decoration: none;
+  color: #7600ff;
+  display: flex;
+  gap: 0 0.5vw;
+  font-size: 1.4rem;
+}
 #footer-right {
   height: 100%;
   width: 35%;

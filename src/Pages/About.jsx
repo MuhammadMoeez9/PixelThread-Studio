@@ -12,6 +12,7 @@ import {
   collection,
   serverTimestamp,
 } from "firebase/firestore";
+import gsap from "gsap";
 import { db } from "../Component/Firebase"; // Adjust this import path to your Firebase config
 import Logo from "../assets/300x100-01.png";
 import BrotherStellaireembroiderymachineThumbnail from "../assets/BrotherStellaireembroiderymachineThumbnail.png";
@@ -67,6 +68,61 @@ const About = () => {
       alert("Failed to save. Try again.");
     }
   };
+
+  // FAQ
+
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const faqs = [
+    {
+      question:
+        "Can I get a free trial to check the service quality and speed?",
+      answer: "Yes, we offer a free trial so you can check quality and speed.",
+    },
+    {
+      question: "How do I place an order and complete a full order process?",
+      answer: "You can place an order by filling out our simple order form.",
+    },
+    {
+      question: "How can I request a custom quote or price estimate easily?",
+      answer: "You can easily request a quote by using our contact form.",
+    },
+    {
+      question: "What's are the charges for digitizing based on design type?",
+      answer: "Charges vary depending on the size and complexity involved.",
+    },
+  ];
+
+  useEffect(() => {
+    let tl = gsap.timeline();
+
+    tl.from("#loader h3", {
+      x: 35,
+      stagger: 0.2,
+      opacity: 0,
+      duration: 1,
+    });
+
+    tl.to("#loader h3", {
+      x: -35,
+      stagger: 0.1,
+      opacity: 0,
+      duration: 1,
+    });
+
+    tl.to("#loader", {
+      opacity: 0,
+      duration: 1,
+      onComplete: () => {
+        document.querySelector("#loader").style.display = "none";
+      },
+    });
+  }, []);
+
+  const toggleFAQ = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+  // FAQ ending
 
   useEffect(() => {
     const menuIcon = document.querySelector(".ri-menu-fill");
@@ -477,22 +533,35 @@ const About = () => {
               </p>
             </div>
             <div id="page-8-left">
-              <div className="content">
-                <h2>Can I avail the free triral for cheak quality and time?</h2>
-                <i className="ri-arrow-down-line" />
-              </div>
-              <div className="content">
-                <h2>How can i place the order?</h2>
-                <i className="ri-arrow-down-line" />
-              </div>
-              <div className="content">
-                <h2>How do i request for Quote/Estimate?</h2>
-                <i className="ri-arrow-down-line" />
-              </div>
-              <div className="content">
-                <h2>How much do you charge for digitizing?</h2>
-                <i className="ri-arrow-down-line" />
-              </div>
+              {faqs.map((faq, index) => (
+                <div key={index}>
+                  <div
+                    className={`content ${
+                      activeIndex === index ? "active" : ""
+                    }`}
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    <h2 className="">{faq.question}</h2>
+                    <i
+                      className={`ri-arrow-down-line ${
+                        activeIndex === index ? "rotated" : ""
+                      }`}
+                    />
+                  </div>
+                  <div
+                    className="answer-box"
+                    style={{
+                      maxHeight: activeIndex === index ? "180px" : "0px",
+                      opacity: activeIndex === index ? "1" : "0",
+                      padding: activeIndex === index ? "15px 3vw" : "0px 3vw",
+                      transition: "all 0.3s ease-in-out",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {faq.answer}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </FadeInSection>
@@ -547,8 +616,14 @@ const About = () => {
           </div>
           <div className="social-links">
             <div id="social">
-              <i className="ri-facebook-circle-fill" />
-              <i className="ri-instagram-fill" />
+              <a href="https://www.facebook.com/profile.php?id=61574087804821">
+                {" "}
+                <i className="ri-facebook-circle-fill" />
+              </a>
+              <a href="https://www.instagram.com/pixel_threadsstudio/">
+                {" "}
+                <i className="ri-instagram-fill" />
+              </a>
               <i className="ri-twitter-x-fill" />
               <i className="ri-whatsapp-fill" />
               <i className="ri-linkedin-box-fill" />

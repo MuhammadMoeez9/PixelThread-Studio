@@ -18,10 +18,6 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import moment from "moment-timezone";
 
 const Register = () => {
-  useEffect(() => {
-    document.title = "Register";
-  }, []);
-
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

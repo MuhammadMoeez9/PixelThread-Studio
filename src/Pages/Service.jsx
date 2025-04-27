@@ -452,7 +452,7 @@ const Service = () => {
                   experience!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceFourBoy} alt="" />
                   <div className="client-info">
                     <h5>James T.</h5>
                     <p>Highly Recommend!</p>
@@ -487,7 +487,7 @@ const Service = () => {
                   my expectations. The attention to detail was incredible!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceFourGirl} alt="" />
                   <div className="client-info">
                     <h5>Ava C.</h5>
                     <p>Worth Every Penny!</p>
@@ -504,7 +504,7 @@ const Service = () => {
                   is top-tier, and I will definitely be using this again!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceThreeBoy} alt="" />
                   <div className="client-info">
                     <h5>Michael B.</h5>
                     <p>Best Decision Ever!</p>
@@ -594,7 +594,7 @@ const Service = () => {
                   experience!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceFourBoy} alt="" />
                   <div className="client-info">
                     <h5>James T.</h5>
                     <p>Highly Recommend!</p>
@@ -629,7 +629,7 @@ const Service = () => {
                   my expectations. The attention to detail was incredible!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceFourGirl} alt="" />
                   <div className="client-info">
                     <h5>Ava C.</h5>
                     <p>Worth Every Penny!</p>
@@ -646,7 +646,7 @@ const Service = () => {
                   is top-tier, and I will definitely be using this again!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceThreeBoy} alt="" />
                   <div className="client-info">
                     <h5>Michael B.</h5>
                     <p>Best Decision Ever!</p>
@@ -736,7 +736,7 @@ const Service = () => {
                   experience!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceTwoBoy} alt="" />
                   <div className="client-info">
                     <h5>James T.</h5>
                     <p>Highly Recommend!</p>
@@ -771,7 +771,7 @@ const Service = () => {
                   my expectations. The attention to detail was incredible!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceFourGirl} alt="" />
                   <div className="client-info">
                     <h5>Ava C.</h5>
                     <p>Worth Every Penny!</p>
@@ -788,7 +788,7 @@ const Service = () => {
                   is top-tier, and I will definitely be using this again!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceThreeBoy} alt="" />
                   <div className="client-info">
                     <h5>Michael B.</h5>
                     <p>Best Decision Ever!</p>
@@ -880,7 +880,7 @@ const Service = () => {
                   experience!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceTwoBoy} alt="" />
                   <div className="client-info">
                     <h5>James T.</h5>
                     <p>Highly Recommend!</p>
@@ -915,7 +915,7 @@ const Service = () => {
                   my expectations. The attention to detail was incredible!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceFourGirl} alt="" />
                   <div className="client-info">
                     <h5>Ava C.</h5>
                     <p>Worth Every Penny!</p>
@@ -932,7 +932,7 @@ const Service = () => {
                   is top-tier, and I will definitely be using this again!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceThreeBoy} alt="" />
                   <div className="client-info">
                     <h5>Michael B.</h5>
                     <p>Best Decision Ever!</p>
@@ -1022,7 +1022,7 @@ const Service = () => {
                   experience!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceTwoBoy} alt="" />
                   <div className="client-info">
                     <h5>James T.</h5>
                     <p>Highly Recommend!</p>
@@ -1057,7 +1057,7 @@ const Service = () => {
                   my expectations. The attention to detail was incredible!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceFourGirl} alt="" />
                   <div className="client-info">
                     <h5>Ava C.</h5>
                     <p>Worth Every Penny!</p>
@@ -1074,7 +1074,7 @@ const Service = () => {
                   is top-tier, and I will definitely be using this again!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceThreeBoy} alt="" />
                   <div className="client-info">
                     <h5>Michael B.</h5>
                     <p>Best Decision Ever!</p>
@@ -1164,7 +1164,7 @@ const Service = () => {
                   experience!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceTwoBoy} alt="" />
                   <div className="client-info">
                     <h5>James T.</h5>
                     <p>Highly Recommend!</p>
@@ -1199,7 +1199,7 @@ const Service = () => {
                   my expectations. The attention to detail was incredible!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceFourGirl} alt="" />
                   <div className="client-info">
                     <h5>Ava C.</h5>
                     <p>Worth Every Penny!</p>
@@ -1216,7 +1216,7 @@ const Service = () => {
                   is top-tier, and I will definitely be using this again!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceThreeBoy} alt="" />
                   <div className="client-info">
                     <h5>Michael B.</h5>
                     <p>Best Decision Ever!</p>
@@ -1306,7 +1306,7 @@ const Service = () => {
                   experience!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceTwoBoy} alt="" />
                   <div className="client-info">
                     <h5>James T.</h5>
                     <p>Highly Recommend!</p>
@@ -1341,7 +1341,7 @@ const Service = () => {
                   my expectations. The attention to detail was incredible!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceFourGirl} alt="" />
                   <div className="client-info">
                     <h5>Ava C.</h5>
                     <p>Worth Every Penny!</p>
@@ -1358,7 +1358,7 @@ const Service = () => {
                   is top-tier, and I will definitely be using this again!
                 </p>
                 <div className="client-profile">
-                  <img src="./Assets/reviews card elem-03.png" alt="" />
+                  <img src={FaceThreeBoy} alt="" />
                   <div className="client-info">
                     <h5>Michael B.</h5>
                     <p>Best Decision Ever!</p>
@@ -1454,8 +1454,14 @@ const Service = () => {
           </div>
           <div className="social-links">
             <div id="social">
-              <i className="ri-facebook-circle-fill" />
-              <i className="ri-instagram-fill" />
+              <a href="https://www.facebook.com/profile.php?id=61574087804821">
+                {" "}
+                <i className="ri-facebook-circle-fill" />
+              </a>
+              <a href="https://www.instagram.com/pixel_threadsstudio/">
+                {" "}
+                <i className="ri-instagram-fill" />
+              </a>
               <i className="ri-twitter-x-fill" />
               <i className="ri-whatsapp-fill" />
               <i className="ri-linkedin-box-fill" />

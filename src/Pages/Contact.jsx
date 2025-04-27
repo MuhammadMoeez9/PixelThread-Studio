@@ -22,7 +22,6 @@ const Contact = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-  
   const [formData, setFormData] = useState({
     user_name: "",
     user_email: "", // Email entered by the user
@@ -261,8 +260,14 @@ const Contact = () => {
           </div>
           <div className="social-links">
             <div id="social">
-              <i className="ri-facebook-circle-fill" />
-              <i className="ri-instagram-fill" />
+              <a href="https://www.facebook.com/profile.php?id=61574087804821">
+                {" "}
+                <i className="ri-facebook-circle-fill" />
+              </a>
+              <a href="https://www.instagram.com/pixel_threadsstudio/">
+                {" "}
+                <i className="ri-instagram-fill" />
+              </a>
               <i className="ri-twitter-x-fill" />
               <i className="ri-whatsapp-fill" />
               <i className="ri-linkedin-box-fill" />
