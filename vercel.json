@@ -1,4 +1,11 @@
 {
+    "redirects": [
+        {
+            "source": "https://pixelthreadstudio.com/:path*",
+            "destination": "https://www.pixelthreadstudio.com/:path*",
+            "permanent": true
+        }
+    ],
     "cleanUrls": true,
     "trailingSlash": false
 }
