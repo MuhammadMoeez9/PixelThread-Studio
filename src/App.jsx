@@ -10,11 +10,8 @@ import { AuthProvider, useAuth } from "./Context/AuthContext";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Admin from "./Pages/Admin";
-import ProjectsPage from "./Pages/ProjectPage";
-import ProjectDetailPage from "./Pages/ProjectDetailPage";
 import UserDetail from "./Pages/UserDetail";
 import UploadForm from "./Pages/uploadform";
-import RotatingText from "./Component/RotatingText";
 import "../src/Component/RotatingText.css";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
@@ -26,6 +23,7 @@ import CompleteProfile from "./Pages/CompleteProfile";
 import Portfolio from "./Pages/Portfolio";
 import EmailsTable from "./Pages/EmailsTable";
 import EmailDetail from "./Pages/EmailDetail";
+import Notfound from "./Pages/Notfound";
 // import Loader from "./Component/Loader"
 
 function App() {
@@ -53,6 +51,7 @@ function App() {
             path="/EmailsTable092930jkmsdkj/:id"
             element={<EmailDetail />}
           />
+          <Route path="*" element={<Notfound />} />
         </Routes>
       </AuthProvider>
     </Router>

@@ -184,12 +184,6 @@ const Admin = () => {
             <p>Loading...</p>
           ) : user ? (
             <>
-              {/* {role === "admin" && (
-                <div className="admin-btn-container">
-                  <button onClick={() => navigate("/Admin")}>Admin</button>
-                </div>
-              )
-              } */}
               <Link to="/upload">
                 <button>Upload</button>
               </Link>

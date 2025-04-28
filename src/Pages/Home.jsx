@@ -228,7 +228,7 @@ const Home = () => {
         </div>
         <nav>
           <Link to="/">
-            <img src={logo} alt="" />
+            <img src={logo} alt="" loading="lazy" />
           </Link>
           <div id="links">
             <Link to="/portfolio">Portfolio</Link>
@@ -333,7 +333,7 @@ const Home = () => {
               </div>
             </div>
             <div id="hero-right">
-              <img src={boy3} alt="" />
+              <img src={boy3} alt="" loading="lazy" />
             </div>
           </div>
           <div id="hero-sec-2">
@@ -393,10 +393,10 @@ const Home = () => {
           </div>
           <div id="floating-div">
             <div id="float-1">
-              <img src={elem2v01} alt="" />
+              <img loading="lazy" src={elem2v01} alt="" />
             </div>
             <div id="float-2">
-              <img src={elem01} alt="" />
+              <img loading="lazy" src={elem01} alt="" />
             </div>
           </div>
         </div>
@@ -412,7 +412,7 @@ const Home = () => {
           <div id="page-3-cards">
             <div className="card">
               <div className="card-top">
-                <img src={elements01} alt="" />
+                <img loading="lazy" src={elements01} alt="" />
               </div>
               <div className="card-btm">
                 <h3>Vector Graphics</h3>
@@ -421,13 +421,13 @@ const Home = () => {
                   format? We offer vector art conversion service that will save
                   you time and money both.
                 </p>
-                <img src={elements04} alt="" />
+                <img loading="lazy" src={elements04} alt="" />
               </div>
             </div>
 
             <div className="card">
               <div className="card-top">
-                <img src={elements02} alt="" />
+                <img loading="lazy" src={elements02} alt="" />
               </div>
               <div className="card-btm">
                 <h3>Embroidery Digitizing</h3>
@@ -435,12 +435,12 @@ const Home = () => {
                   Pixel Thread Studio is of one of the prominent embroidery
                   digitizing companies of America.
                 </p>
-                <img src={elements05} alt="" />
+                <img loading="lazy" src={elements05} alt="" />
               </div>
             </div>
             <div className="card">
               <div className="card-top">
-                <img src={elements03} alt="" />
+                <img loading="lazy" src={elements03} alt="" />
               </div>
               <div className="card-btm">
                 <h3>Screen Printing</h3>
@@ -448,13 +448,13 @@ const Home = () => {
                   We have the on-site capacity for larger runs on our automated
                   presses or smaller runs on our manual presses.
                 </p>
-                <img src={elements06} alt="" />
+                <img loading="lazy" src={elements06} alt="" />
               </div>
             </div>
 
             <div className="card">
               <div className="card-top">
-                <img src={elements07} alt="" />
+                <img loading="lazy" src={elements07} alt="" />
               </div>
               <div className="card-btm">
                 <h3>Custom Graphics</h3>
@@ -462,7 +462,7 @@ const Home = () => {
                   Custom graphics designed for your needs, with high-quality,
                   scalable results.
                 </p>
-                <img src={elements08} alt="" />
+                <img loading="lazy" src={elements08} alt="" />
               </div>
             </div>
           </div>
@@ -520,28 +520,28 @@ const Home = () => {
                   <p>PixelThread Studio</p>
                   <h4>Embroidery Digitizing</h4>
                 </div>
-                <img src={AlohaistLogJB} alt="" />
+                <img loading="lazy" src={AlohaistLogJB} alt="" />
               </div>
               <div className="col short">
                 <div className="text">
                   <p>PixelThread Studio</p>
                   <h4>Vector Graphic</h4>
                 </div>
-                <img src={ColorfulGirllogo} alt="" />
+                <img loading="lazy" src={ColorfulGirllogo} alt="" />
               </div>
               <div className="col">
                 <div className="text">
                   <p>PixelThread Studio</p>
                   <h4>Embroidery Digitizing</h4>
                 </div>
-                <img src={ARROW} alt="" />
+                <img loading="lazy" src={ARROW} alt="" />
               </div>
               <div className="col">
                 <div className="text">
                   <p>PixelThread Studio</p>
                   <h4>Vector Graphic</h4>
                 </div>
-                <img src={SOUTHBAYLOGO} alt="" />
+                <img loading="lazy" src={SOUTHBAYLOGO} alt="" />
               </div>
             </div>
             <div className="row">
@@ -550,28 +550,28 @@ const Home = () => {
                   <p>PixelThread Studio</p>
                   <h4>Embroidery Digitizing</h4>
                 </div>
-                <img src={VIPLOGO} alt="" />
+                <img loading="lazy" src={VIPLOGO} alt="" />
               </div>
               <div className="col wide">
                 <div className="text">
                   <p>PixelThread Studio</p>
                   <h4>Vector Graphic</h4>
                 </div>
-                <img src={R2LSKULLLOGO02} alt="" />
+                <img loading="lazy" src={R2LSKULLLOGO02} alt="" />
               </div>
               <div className="col">
                 <div className="text">
                   <p>PixelThread Studio</p>
                   <h4>Embroidery Digitizing</h4>
                 </div>
-                <img src={MANLOGO2} alt="" />
+                <img loading="lazy" src={MANLOGO2} alt="" />
               </div>
               <div className="col">
                 <div className="text">
                   <p>PixelThread Studio</p>
                   <h4>Vector Graphic</h4>
                 </div>
-                <img src={LonghurstDetailslogo} alt="" />
+                <img loading="lazy" src={LonghurstDetailslogo} alt="" />
               </div>
             </div>
             <div className="row">
@@ -580,35 +580,35 @@ const Home = () => {
                   <p>PixelThread Studio</p>
                   <h4>Embroidery Digitizing</h4>
                 </div>
-                <img src={Santa} alt="" />
+                <img loading="lazy" src={Santa} alt="" />
               </div>
               <div className="col wide">
                 <div className="text">
                   <p>PixelThread Studio</p>
                   <h4>Embroidery Digitizing</h4>
                 </div>
-                <img src={LakeLogo} alt="" />
+                <img loading="lazy" src={LakeLogo} alt="" />
               </div>
               <div className="col wide">
                 <div className="text">
                   <p>PixelThread Studio</p>
                   <h4>Embroidery Digitizing</h4>
                 </div>
-                <img src={LakeLogo02222} alt="" />
+                <img loading="lazy" src={LakeLogo02222} alt="" />
               </div>
               <div className="col">
                 <div className="text">
                   <p>PixelThread Studio</p>
                   <h4>Embroidery Digitizing</h4>
                 </div>
-                <img src={MonkeyJB} alt="" />
+                <img loading="lazy" src={MonkeyJB} alt="" />
               </div>
             </div>
           </div>
           <div id="project-counter">
             <div id="container">
               <div className="count-container">
-                <img src={Icons01} alt="" />
+                <img loading="lazy" src={Icons01} alt="" />
                 <h3>
                   <span>
                     <CountUp
@@ -625,7 +625,7 @@ const Home = () => {
                 <h4>Project Completed</h4>
               </div>
               <div className="count-container">
-                <img src={Icons02} alt="" />
+                <img loading="lazy" src={Icons02} alt="" />
                 <h3>
                   <span>
                     <CountUp
@@ -642,7 +642,7 @@ const Home = () => {
                 <h4>Happy Clients</h4>
               </div>
               <div className="count-container">
-                <img src={Icons03} alt="" />
+                <img loading="lazy" src={Icons03} alt="" />
                 <h3>
                   <span>
                     <CountUp
@@ -659,7 +659,7 @@ const Home = () => {
                 <h4>Vector Designs</h4>
               </div>
               <div className="count-container">
-                <img src={Icons04} alt="" />
+                <img loading="lazy" src={Icons04} alt="" />
                 <h3>
                   <span>
                     <CountUp
@@ -676,7 +676,7 @@ const Home = () => {
                 <h4>Embroidery Digitizing</h4>
               </div>
               <div className="count-container">
-                <img src={Icons05} alt="" />
+                <img loading="lazy" src={Icons05} alt="" />
                 <h3>
                   <span>
                     <CountUp
@@ -741,7 +741,11 @@ const Home = () => {
             onMouseOver={() => videoRef.current.play()}
             onMouseLeave={() => videoRef.current.pause()}
           >
-            <img src={BrotherStellaireembroiderymachineThumbnail} alt="" />
+            <img
+              loading="lazy"
+              src={BrotherStellaireembroiderymachineThumbnail}
+              alt=""
+            />
             <video ref={videoRef} src={video} muted loop />
           </div>
         </div>
@@ -881,16 +885,16 @@ const Home = () => {
           <div id="row-1">
             <div className="testimonials-card">
               <div className="comma">
-                <img src={reviewscardelem01} alt="" />
+                <img loading="lazy" src={reviewscardelem01} alt="" />
               </div>
-              <img src={reviewscardelem02} alt="" />
+              <img loading="lazy" src={reviewscardelem02} alt="" />
               <p>
                 The quality exceeded my expectations, and the customer support
                 was top-notch. Highly recommend to anyone looking for the best
                 in the market!"
               </p>
               <div className="client-profile">
-                <img src={FaceTwoGirl} alt="" />
+                <img loading="lazy" src={FaceTwoGirl} alt="" />
                 <div className="client-info">
                   <h5>Emily R.</h5>
                   <p> Fantastic Service!</p>
@@ -899,15 +903,15 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src={reviewscardelem01} alt="" />
+                <img loading="lazy" src={reviewscardelem01} alt="" />
               </div>
-              <img src={reviewscardelem02} alt="" />
+              <img loading="lazy" src={reviewscardelem02} alt="" />
               <p>
                 Excellent service and very professional! Everything was
                 delivered on time and just as promised. Couldn't be happier!
               </p>
               <div className="client-profile">
-                <img src={FaceOneBoy} alt="" />
+                <img loading="lazy" src={FaceOneBoy} alt="" />
                 <div className="client-info">
                   <h5> Noah W.</h5>
                   <p> Outstanding Quality!</p>
@@ -916,15 +920,15 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src={reviewscardelem01} alt="" />
+                <img loading="lazy" src={reviewscardelem01} alt="" />
               </div>
-              <img src={reviewscardelem02} alt="" />
+              <img loading="lazy" src={reviewscardelem02} alt="" />
               <p>
                 Fantastic service! The team was very professional and delivered
                 everything on time. I am beyond satisfied with my experience!
               </p>
               <div className="client-profile">
-                <img src={FaceTwoBoy} alt="" />
+                <img loading="lazy" src={FaceTwoBoy} alt="" />
                 <div className="client-info">
                   <h5>James T.</h5>
                   <p>Highly Recommend!</p>
@@ -933,16 +937,16 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src={reviewscardelem01} alt="" />
+                <img loading="lazy" src={reviewscardelem01} alt="" />
               </div>
-              <img src={reviewscardelem02} alt="" />
+              <img loading="lazy" src={reviewscardelem02} alt="" />
               <p>
                 I had an amazing experience with this product/service. The
                 quality was exceptional, and the customer support was super
                 helpful. I highly recommend it to anyone!
               </p>
               <div className="client-profile">
-                <img src={FaceFiveGirl} alt="" />
+                <img loading="lazy" src={FaceFiveGirl} alt="" />
                 <div className="client-info">
                   <h5>Sarah L.</h5>
                   <p>Outstanding Quality!</p>
@@ -951,15 +955,15 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src={reviewscardelem01} alt="" />
+                <img loading="lazy" src={reviewscardelem01} alt="" />
               </div>
-              <img src={reviewscardelem02} alt="" />
+              <img loading="lazy" src={reviewscardelem02} alt="" />
               <p>
                 I wasn't sure at first, but this service completely exceeded my
                 expectations. The attention to detail was incredible!
               </p>
               <div className="client-profile">
-                <img src={FaceThreeGirl} alt="" />
+                <img loading="lazy" src={FaceThreeGirl} alt="" />
                 <div className="client-info">
                   <h5>Ava C.</h5>
                   <p>Worth Every Penny!</p>
@@ -968,15 +972,15 @@ const Home = () => {
             </div>
             <div className="testimonials-card">
               <div className="comma">
-                <img src={reviewscardelem01} alt="" />
+                <img loading="lazy" src={reviewscardelem01} alt="" />
               </div>
-              <img src={reviewscardelem02} alt="" />
+              <img loading="lazy" src={reviewscardelem02} alt="" />
               <p>
                 I love how smooth and easy the whole process was. The quality is
                 top-tier, and I will definitely be using this again!
               </p>
               <div className="client-profile">
-                <img src={FaceThreeBoy} alt="" />
+                <img loading="lazy" src={FaceThreeBoy} alt="" />
                 <div className="client-info">
                   <h5>Michael B.</h5>
                   <p>Best Decision Ever!</p>
