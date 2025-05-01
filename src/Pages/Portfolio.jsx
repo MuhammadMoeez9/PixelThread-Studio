@@ -23,6 +23,9 @@ const Portfolio = () => {
   const [loading, setLoading] = useState(true);
   const auth = getAuth();
   const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 16;
+
   const [isOpen, setIsOpen] = useState(false);
   const [projects, setProjects] = useState([]);
   const [formData, setFormData] = useState({
@@ -30,6 +33,18 @@ const Portfolio = () => {
     user_email: "",
     message: "",
   });
+  const indexOfLastProject = currentPage * projectsPerPage;
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+  const currentProjects = projects.slice(
+    indexOfFirstProject,
+    indexOfLastProject
+  );
+
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -167,9 +182,11 @@ const Portfolio = () => {
               <button>Login</button>
             </Link>
           )}
-          <Link to="/CompleteProfile">
-            <img src={reviewscardelem03} alt="User Icon" />
-          </Link>
+          {user && (
+            <Link to="/CompleteProfile">
+              <img src={reviewscardelem03} alt="User Icon" />
+            </Link>
+          )}
 
           <button className="btn mobile-nav-btn">
             <i className="ri-menu-fill"></i>
@@ -192,7 +209,7 @@ const Portfolio = () => {
       </nav>
       <div className="page-four" id="page-four">
         <div className="img-container" id="img-container">
-          {projects.map((project) => (
+          {currentProjects.map((project) => (
             <div key={project.id} className="">
               <div className="col">
                 <div className="text">
@@ -208,6 +225,28 @@ const Portfolio = () => {
               </div>
             </div>
           ))}
+          {totalPages > 1 && (
+            <div style={{ textAlign: "center", margin: "2rem 0" }}>
+              {[...Array(totalPages)].map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handlePageChange(index + 1)}
+                  style={{
+                    margin: "0 5px",
+                    padding: "10px 15px",
+                    backgroundColor:
+                      currentPage === index + 1 ? "#555" : "#ddd",
+                    color: currentPage === index + 1 ? "#fff" : "#000",
+                    border: "none",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                  }}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <div id="footer">
@@ -225,8 +264,11 @@ const Portfolio = () => {
             <div className="box">
               <h2>Company</h2>
               <ul>
-                <Link to="/portfolio">
+                <Link to="/">
                   <li>Home</li>
+                </Link>
+                <Link to="/portfolio">
+                  <li>Portfolio</li>
                 </Link>
                 <Link to="/pricing">
                   <li>Pricing</li>
@@ -253,8 +295,8 @@ const Portfolio = () => {
             <div className="box">
               <h2>Location</h2>
               <ul>
-                <li>123 Boulevard</li>
-                <li>USA ABC 1223</li>
+                <li>11718 N Garden St,</li>
+                <li>Houston, Tx 77071</li>
               </ul>
             </div>
           </div>

@@ -383,7 +383,17 @@ const Home = () => {
           }}
         >
           <div id="page-2-content">
-            <h2>All-inclusive</h2>
+            <h2
+              style={{
+                color: "white",
+                backgroundColor: "#7600ff",
+                fontSize: "1rem",
+                borderRadius: "50px",
+                fontWeight: "400",
+              }}
+            >
+              All-inclusive
+            </h2>
             <span>
               Offering all-inclusive services for vector digitizing, custom
               graphics, and screen printing. We create high-quality, scalable
@@ -2070,8 +2080,11 @@ const Home = () => {
             <div className="box">
               <h2>Company</h2>
               <ul>
-                <Link to="/portfolio">
+                <Link to="/">
                   <li>Home</li>
+                </Link>
+                <Link to="/portfolio">
+                  <li>Portfolio</li>
                 </Link>
                 <Link to="/pricing">
                   <li>Pricing</li>
@@ -2092,14 +2105,13 @@ const Home = () => {
               <h2>Contact</h2>
               <ul>
                 <li>info@pixelthreadstudio.com</li>
-                <li>career@pixelthreadstudio.com</li>
               </ul>
             </div>
             <div className="box">
               <h2>Location</h2>
               <ul>
-                <li>123 Boulevard</li>
-                <li>USA ABC 1223</li>
+                <li>11718 N Garden St,</li>
+                <li>Houston, Tx 77071</li>
               </ul>
             </div>
           </div>

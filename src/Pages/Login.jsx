@@ -102,6 +102,10 @@ const Login = () => {
             fullWidth
             style={{ marginTop: "1rem" }}
             disabled={loading}
+            sx={{
+              marginTop: "1rem",
+              backgroundColor: "#7600ff",
+            }}
           >
             {loading ? <CircularProgress size={24} /> : "Login"}
           </Button>

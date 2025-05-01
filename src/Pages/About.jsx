@@ -210,7 +210,11 @@ const About = () => {
               </Link>
             )}
 
-            <img src={reviewscardelem03} alt="User Icon" />
+            {user && (
+              <Link to="/CompleteProfile">
+                <img src={reviewscardelem03} alt="User Icon" />
+              </Link>
+            )}
 
             <button className="btn mobile-nav-btn">
               <i className="ri-menu-fill"></i>
@@ -581,8 +585,11 @@ const About = () => {
             <div className="box">
               <h2>Company</h2>
               <ul>
-                <Link to="/portfolio">
+                <Link to="/">
                   <li>Home</li>
+                </Link>
+                <Link to="/portfolio">
+                  <li>Portfolio</li>
                 </Link>
                 <Link to="/pricing">
                   <li>Pricing</li>

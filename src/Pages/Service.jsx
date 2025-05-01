@@ -162,7 +162,11 @@ const Service = () => {
               </Link>
             )}
 
-            <img src={reviewscardelem03} alt="User Icon" />
+            {user && (
+              <Link to="/CompleteProfile">
+                <img src={reviewscardelem03} alt="User Icon" />
+              </Link>
+            )}
 
             <button className="btn mobile-nav-btn">
               <i className="ri-menu-fill"></i>
@@ -1418,24 +1422,27 @@ const Service = () => {
           <div className="l-btm">
             <div className="box">
               <h2>Company</h2>
-              <ul>
-                <Link to="/portfolio">
-                  <li>Home</li>
-                </Link>
-                <Link to="/pricing">
-                  <li>Pricing</li>
-                </Link>
-                <Link to="/Services">
-                  <li>Our Services</li>
-                </Link>
-                <Link to="/About">
-                  {" "}
-                  <li>About Us</li>
-                </Link>
-                <Link to="/Contact">
-                  <li>Contact</li>
-                </Link>
-              </ul>
+             <ul>
+                           <Link to="/">
+                             <li>Home</li>
+                           </Link>
+                           <Link to="/portfolio">
+                             <li>Portfolio</li>
+                           </Link>
+                           <Link to="/pricing">
+                             <li>Pricing</li>
+                           </Link>
+                           <Link to="/Services">
+                             <li>Our Services</li>
+                           </Link>
+                           <Link to="/About">
+                             {" "}
+                             <li>About Us</li>
+                           </Link>
+                           <Link to="/Contact">
+                             <li>Contact</li>
+                           </Link>
+                         </ul>
             </div>
             <div className="box">
               <h2>Contact</h2>
@@ -1447,8 +1454,8 @@ const Service = () => {
             <div className="box">
               <h2>Location</h2>
               <ul>
-                <li>123 Boulevard</li>
-                <li>USA ABC 1223</li>
+              <li>11718 N Garden St,</li>
+              <li>Houston, Tx 77071</li>
               </ul>
             </div>
           </div>

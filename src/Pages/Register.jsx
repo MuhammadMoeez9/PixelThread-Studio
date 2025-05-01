@@ -14,7 +14,8 @@ import {
   InputAdornment,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import moment from "moment-timezone";
 
 const Register = () => {
@@ -23,13 +24,13 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(""); // Error state
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setErrorMessage(""); // Reset error before attempting registration
+    setErrorMessage("");
 
     try {
       const userCredential = await createUserWithEmailAndPassword(
@@ -38,7 +39,6 @@ const Register = () => {
         password
       );
 
-      // Store user data in Firestore
       const userDocRef = doc(db, "users", userCredential.user.uid);
       const pakistanTimestamp = moment().tz("Asia/Karachi").toDate();
       const firestoreTimestamp = Timestamp.fromDate(pakistanTimestamp);
@@ -50,16 +50,19 @@ const Register = () => {
         createdAt: firestoreTimestamp,
       });
 
-      // Sign out the user immediately after registration
       await signOut(auth);
+
+      toast.success("Register successful! Redirecting...", {
+        position: "top-center",
+        autoClose: 3000,
+      });
 
       setTimeout(() => {
         navigate("/login");
-      }, 3000);
+      }, 3200);
     } catch (error) {
       console.error("Error registering user:", error);
 
-      // 🔹 Handle Firebase errors
       if (error.code === "auth/email-already-in-use") {
         setErrorMessage("Email is Already in Use");
       } else {
@@ -124,7 +127,6 @@ const Register = () => {
             }}
           />
 
-          {/* 🔹 Register Button */}
           <Button
             type="submit"
             variant="contained"
@@ -138,7 +140,6 @@ const Register = () => {
             {loading ? <CircularProgress size={24} /> : "Register"}
           </Button>
 
-          {/* 🔹 Error Message (Shown only if error occurs) */}
           {errorMessage && (
             <Typography
               variant="body2"
@@ -159,6 +160,8 @@ const Register = () => {
           Already have an account? <br /> Login
         </Button>
       </Paper>
+
+      <ToastContainer />
     </Container>
   );
 };

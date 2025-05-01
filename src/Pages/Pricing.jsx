@@ -140,7 +140,11 @@ const Pricing = () => {
               </Link>
             )}
 
-            <img src={reviewscardelem03} alt="User Icon" />
+            {user && (
+              <Link to="/CompleteProfile">
+                <img src={reviewscardelem03} alt="User Icon" />
+              </Link>
+            )}
 
             <button className="btn mobile-nav-btn">
               <i className="ri-menu-fill"></i>
@@ -282,8 +286,11 @@ const Pricing = () => {
               <div className="box">
                 <h2>Company</h2>
                 <ul>
-                  <Link to="/portfolio">
+                  <Link to="/">
                     <li>Home</li>
+                  </Link>
+                  <Link to="/portfolio">
+                    <li>Portfolio</li>
                   </Link>
                   <Link to="/pricing">
                     <li>Pricing</li>
@@ -310,8 +317,8 @@ const Pricing = () => {
               <div className="box">
                 <h2>Location</h2>
                 <ul>
-                  <li>123 Boulevard</li>
-                  <li>USA ABC 1223</li>
+                  <li>11718 N Garden St,</li>
+                  <li>Houston, Tx 77071</li>
                 </ul>
               </div>
             </div>
