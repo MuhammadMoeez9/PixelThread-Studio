@@ -610,14 +610,13 @@ const About = () => {
               <h2>Contact</h2>
               <ul>
                 <li>info@pixelthreadstudio.com</li>
-                <li>career@pixelthreadstudio.com</li>
               </ul>
             </div>
             <div className="box">
               <h2>Location</h2>
               <ul>
-                <li>123 Boulevard</li>
-                <li>USA ABC 1223</li>
+                <li>11718 N Garden St,</li>
+                <li>Houston, Tx 77071</li>
               </ul>
             </div>
           </div>
