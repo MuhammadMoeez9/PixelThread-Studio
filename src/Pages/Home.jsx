@@ -8,7 +8,7 @@ import {
   collection,
   serverTimestamp,
 } from "firebase/firestore";
-import { db } from "../Component/Firebase"; // Ensure correct import paths
+import { db } from "../Component/Firebase"; 
 import "./Home.css";
 import "../App.css";
 import gsap from "gsap";

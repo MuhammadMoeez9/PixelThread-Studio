@@ -429,7 +429,7 @@ nav button:hover {
   gap: 1vw;
 }
 
-#floating-div img {
+/* #floating-div img {
   width: 25vw;
 }
 #float-1 {
@@ -444,7 +444,7 @@ nav button:hover {
   left: 2vw;
   top: 20vh;
   animation: floatAnimation 3s ease-in-out infinite;
-}
+} */
 
 #page-3 {
   width: 100vw;
@@ -502,9 +502,9 @@ nav button:hover {
   background-color: #7600ff;
   transition: all 0.3s ease;
 }
-.card:hover {
+/* .card:hover {
   transform: scale(1.02);
-}
+} */
 .card-top {
   overflow: hidden;
   height: 76%;
@@ -653,9 +653,6 @@ nav button:hover {
   object-position: center;
   transition: 2.8s ease all;
 }
-.col img:hover {
-  scale: 1.5;
-}
 .text {
   z-index: 999;
   opacity: 0;
@@ -674,10 +671,10 @@ nav button:hover {
   line-height: 1;
 }
 
-.col:hover .text {
+/* .col:hover .text {
   transform: translateY(0px);
   opacity: 1;
-}
+} */
 .row {
   flex-wrap: wrap;
   border-radius: 10px;
@@ -1320,7 +1317,7 @@ nav button:hover {
     transform: translateX(-100%);
   }
 }
-@keyframes floatAnimation {
+/* @keyframes floatAnimation {
   0% {
     transform: translateY(0);
   }
@@ -1330,7 +1327,7 @@ nav button:hover {
   100% {
     transform: translateY(0);
   }
-}
+} */
 
 /* Responsive styles */
 @media (max-width: 1024px) {

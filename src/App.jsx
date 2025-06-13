@@ -16,7 +16,7 @@ import "../src/Component/RotatingText.css";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import AboutAnimation from "./Pages/AboutAnimation";
-import HomeAnimation from "./Pages/HomeAnimation";
+import Home from "./Pages/Home";
 import Pricing from "./Pages/Pricing";
 import Service from "./Pages/Service";
 import CompleteProfile from "./Pages/CompleteProfile";
@@ -43,7 +43,7 @@ function App() {
           <Route path="/Animation" element={<AboutAnimation />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/CompleteProfile" element={<CompleteProfile />} />
-          <Route path="/" element={<HomeAnimation />} />
+          <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/user/:userId" element={<UserDetail />} />
           <Route path="/EmailsTable092930jkmsdkj" element={<EmailsTable />} />

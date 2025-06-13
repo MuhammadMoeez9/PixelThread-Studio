@@ -607,9 +607,9 @@ nav button:hover {
   object-position: center;
   transition: 2.8s ease all;
 }
-.col img:hover {
+/* .col img:hover {
   scale: 1.5;
-}
+} */
 .text {
   z-index: 999;
   opacity: 0;
