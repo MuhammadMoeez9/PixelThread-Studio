@@ -718,7 +718,7 @@ const Home = () => {
               src={BrotherStellaireembroiderymachineThumbnail}
               alt=""
             />
-            <video ref={videoRef} src={video} muted loop />
+            {/* <video ref={videoRef} src={video} muted loop /> */}
           </div>
         </div>
       </div>
