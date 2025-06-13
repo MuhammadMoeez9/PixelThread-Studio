@@ -837,11 +837,6 @@ nav button:hover {
   object-position: center;
 }
 
-/* Smooth Hover Effect */
-#btm-right:hover img {
-  opacity: 0;
-}
-
 #page-6-cards {
   justify-content: center;
   width: 100%;
