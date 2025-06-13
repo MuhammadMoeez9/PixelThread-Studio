@@ -709,16 +709,16 @@ const Home = () => {
           </div>
           <div
             id="btm-right"
-            // onMouseEnter={() => videoRef.current.play()}
-            // onMouseOver={() => videoRef.current.play()}
-            // onMouseLeave={() => videoRef.current.pause()}
+            onMouseEnter={() => videoRef.current.play()}
+            onMouseOver={() => videoRef.current.play()}
+            onMouseLeave={() => videoRef.current.pause()}
           >
             <img
               loading="lazy"
               src={BrotherStellaireembroiderymachineThumbnail}
               alt=""
             />
-            {/* <video ref={videoRef} src={video} muted loop /> */}
+            <video ref={videoRef} src={video} muted loop />
           </div>
         </div>
       </div>
