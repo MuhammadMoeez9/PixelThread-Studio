@@ -8,7 +8,7 @@ import {
   collection,
   serverTimestamp,
 } from "firebase/firestore";
-import { db } from "../Component/Firebase"; 
+import { db } from "../Component/Firebase";
 import "./Home.css";
 import "../App.css";
 import gsap from "gsap";
@@ -477,7 +477,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div id="page-4">
+        {/* <div id="page-4">
           <div id="page-4-content">
             <h2>Work &amp; Projects</h2>
             <p>
@@ -485,44 +485,6 @@ const Home = () => {
               crafted with precision and creativity.
             </p>
           </div>
-          {/* <div id="pr-cards">
-          <div class="project-card">
-              <img src="./Assets/Projects/transport control logo (1).png" alt="">
-          </div>
-          <div class="project-card">
-              <img src="./Assets/Projects/I Said Yes.JPG" alt="">
-          </div>
-          <div class="project-card">
-              <img src="./Assets/Projects/DRAGON LOGO.png" alt="">
-          </div>
-          <div class="project-card">
-              <img src="./Assets/Projects/Monkey JB.JPG" alt="">
-          </div>
-          <div class="project-card">
-              <img src="./Assets/Projects/Colorful Girl logo.png" alt="">
-          </div>
-          <div class="project-card">
-              <img src="./Assets/Projects/logo02.JPG" alt="">
-          </div>
-          <div class="project-card">
-              <img src="./Assets/Projects/Longhurst Details logo.png" alt="">
-          </div>
-          <div class="project-card">
-              <img src="./Assets/Projects/logo02.JPG" alt="">
-          </div>
-          <div class="project-card">
-              <img src="./Assets/Projects/WTF LOGO.png" alt="">
-          </div>
-          <div class="project-card">
-              <img src="./Assets/Projects/kayeejz Logo1.JPG" alt="">
-          </div>
-          <div class="project-card">
-              <img src="./Assets/Projects/Skull.png" alt="">
-          </div>
-          <div class="project-card">
-              <img src="./Assets/Projects/BUG GUTZ Logo1.jpg" alt="">
-          </div>
-      </div> */}
           <div id="image-container">
             <div className="row">
               <div className="col wide">
@@ -704,7 +666,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div id="page-5">
         <div id="page-5-content">
